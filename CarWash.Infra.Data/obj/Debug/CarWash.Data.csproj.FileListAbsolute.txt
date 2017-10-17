@@ -1,0 +1,14 @@
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Infra.Data.pdb
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Domain.dll
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Domain.pdb
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\CarWash.Data.csprojResolveAssemblyReference.cache
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Domain.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Domain.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\CarWash.Data.csprojResolveAssemblyReference.cache
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb

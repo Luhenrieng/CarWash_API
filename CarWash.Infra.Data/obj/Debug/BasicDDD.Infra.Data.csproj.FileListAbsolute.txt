@@ -1,0 +1,14 @@
+C:\Users\luizh\OneDrive\Documentos\Visual Studio 2015\Projects\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll
+C:\Users\luizh\OneDrive\Documentos\Visual Studio 2015\Projects\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Infra.Data.pdb
+C:\Users\luizh\OneDrive\Documentos\Visual Studio 2015\Projects\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Domain.dll
+C:\Users\luizh\OneDrive\Documentos\Visual Studio 2015\Projects\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Domain.pdb
+C:\Users\luizh\OneDrive\Documentos\Visual Studio 2015\Projects\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.csprojResolveAssemblyReference.cache
+C:\Users\luizh\OneDrive\Documentos\Visual Studio 2015\Projects\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
+C:\Users\luizh\OneDrive\Documentos\Visual Studio 2015\Projects\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Infra.Data.pdb
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Domain.dll
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\BasicDDD.Domain.pdb
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.csprojResolveAssemblyReference.cache
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
+C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb
