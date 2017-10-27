@@ -20,8 +20,7 @@ namespace BasicDDD.BasicApplication.App_Start
     using Ninject.Syntax;
     using System.Diagnostics.Contracts;
     using Ninject.Modules;
-
-    
+    using Domain.Interfaces.Repositories;
 
     public class NinjectRegistrations : NinjectModule
     {
@@ -30,6 +29,10 @@ namespace BasicDDD.BasicApplication.App_Start
             Bind<IClientService>().To<ClientService>();
             Bind<IClientAppService>().To<ClientAppService>();
             Bind<IClientRepository>().To<ClientRepository>();
+
+            Bind<ILogService>().To<LogService>();
+            Bind<ILogAppService>().To<LogAppService>();
+            Bind<ILogRepository>().To<LogRepository>();
         }
     }
 

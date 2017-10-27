@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="ClientAppService.cs" />
     <Compile Include="Interface\IClientAppService.cs" />
+    <Compile Include="Interface\ILogAppService.cs" />
+    <Compile Include="LogAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
