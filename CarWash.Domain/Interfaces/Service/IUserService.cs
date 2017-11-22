@@ -9,5 +9,7 @@ namespace BasicDDD.Domain.Interfaces.Service
     public interface IUserService
     {
         int Add(Entities.User user);
+
+        List<Entities.User> List();
     }
 }

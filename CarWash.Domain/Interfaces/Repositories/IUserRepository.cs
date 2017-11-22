@@ -9,5 +9,7 @@ namespace BasicDDD.Domain.Interfaces.Repositories
     public interface IUserRepository
     {
         int Add(Entities.User user);
+
+        List<Entities.User> List();
     }
 }

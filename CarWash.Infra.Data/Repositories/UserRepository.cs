@@ -56,5 +56,33 @@ namespace BasicDDD.Infra.Data.Repositories
                 return con.Execute(sql, user);
             }
         }
+
+
+        public List<User> List()
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = @"select Id, 
+                                    RoleId, 
+                                    Name,
+                                    Email,
+                                    Document,
+                                    Inserted,
+                                    BirthDate,
+                                    Cep,
+                                    Address,
+                                    AddressNumber,
+                                    Complement,
+                                    District,
+                                    City,
+                                    State,
+                                    PhoneNumber,
+                                    GeoLocation,
+                                    Active
+                                    from User";
+
+                return con.Query<User>(sql).ToList();
+            }
+        }
     }
 }

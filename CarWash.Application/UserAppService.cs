@@ -22,5 +22,10 @@ namespace BasicDDD.Application
         {
             return this._userService.Add(user);
         }
+
+        public List<User> List()
+        {
+            return this._userService.List();
+        }
     }
 }

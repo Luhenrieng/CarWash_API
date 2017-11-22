@@ -21,5 +21,10 @@ namespace BasicDDD.Domain.Services
         {
             return this._userRepository.Add(user);
         }
+
+        public List<User> List()
+        {
+            return this._userRepository.List();
+        }
     }
 }
