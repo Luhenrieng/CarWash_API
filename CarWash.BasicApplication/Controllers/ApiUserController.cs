@@ -24,11 +24,18 @@ namespace BasicDDD.BasicApplication.Controllers
         }
 
         // GET: api/ApiUser
-        public List<UserViewModel> Get()
+        public ApiResponse Get()
         {
-            List<Domain.Entities.User> users =  this._userAppService.List();
-            List<UserViewModel> listUser = Mapper.Map<List<UserViewModel>>(users);
-            return listUser;
+            try
+            {
+                List<Domain.Entities.User> users = this._userAppService.List();
+                List<UserViewModel> listUser = Mapper.Map<List<UserViewModel>>(users);
+                return new ApiResponse(true, listUser);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
         }
 
         // GET: api/ApiUser/5
@@ -52,4 +59,5 @@ namespace BasicDDD.BasicApplication.Controllers
         {
         }
     }
+    
 }
