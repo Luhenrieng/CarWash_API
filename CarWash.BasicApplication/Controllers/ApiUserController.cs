@@ -12,6 +12,7 @@ using BasicDDD.Application;
 
 namespace BasicDDD.BasicApplication.Controllers
 {
+    [BasicAuthentication]
     public class ApiUserController : ApiController
     {
 
