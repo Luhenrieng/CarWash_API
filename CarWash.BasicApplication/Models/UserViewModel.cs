@@ -11,6 +11,7 @@ namespace BasicDDD.BasicApplication.Models
         public int RoleId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
         public string Document { get; set; }
         public DateTime Inserted { get; set; }
         public DateTime BirthDate { get; set; }

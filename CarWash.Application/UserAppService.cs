@@ -27,5 +27,10 @@ namespace BasicDDD.Application
         {
             return this._userService.List();
         }
+
+        public string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state)
+        {
+            return this._userService.GetLocationFromAddress( address,  number,  neighborhood,  city,  state);
+        }
     }
 }

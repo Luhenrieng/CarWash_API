@@ -23,6 +23,7 @@ namespace BasicDDD.BasicApplication.Controllers
 
         public ActionResult Index()
         {
+            
             Client client1 = _clientApp.GetAll().FirstOrDefault();
             ClientViewModel list2 = Mapper.Map<ClientViewModel>(client1);
 

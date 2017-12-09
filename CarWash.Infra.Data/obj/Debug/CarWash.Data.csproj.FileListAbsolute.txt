@@ -16,3 +16,5 @@ C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\Dapper.dll
 C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\Dapper.xml
 C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll.config
 C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\MySql.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\CarWash.Util.pdb

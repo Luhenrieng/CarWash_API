@@ -44,7 +44,12 @@
     <Compile Include="Services\LogService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CarWash.Util\CarWash.Util.csproj">
+      <Project>{22d8dd8d-d0d0-4e68-95b2-cc3476f7f514}</Project>
+      <Name>CarWash.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>

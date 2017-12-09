@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWash.Data", "CarWash.Inf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWash.Application", "CarWash.Application\CarWash.Application.csproj", "{511EA35B-A578-433A-84E9-535C06557CA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWash.Util", "CarWash.Util\CarWash.Util.csproj", "{22D8DD8D-D0D0-4E68-95B2-CC3476F7F514}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{511EA35B-A578-433A-84E9-535C06557CA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{511EA35B-A578-433A-84E9-535C06557CA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{511EA35B-A578-433A-84E9-535C06557CA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22D8DD8D-D0D0-4E68-95B2-CC3476F7F514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D8DD8D-D0D0-4E68-95B2-CC3476F7F514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D8DD8D-D0D0-4E68-95B2-CC3476F7F514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D8DD8D-D0D0-4E68-95B2-CC3476F7F514}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,5 +64,6 @@ Global
 		{33854227-0C64-4C5B-B4F1-4C6DAA3BB845} = {72AFAF1B-B1A9-4A82-9A84-E939BA9F9381}
 		{31EA22F8-9839-4BEF-9CB1-6E45DE4F0859} = {A55C316D-C56B-4112-AE2C-8CC3180DB47B}
 		{511EA35B-A578-433A-84E9-535C06557CA3} = {4E393C8B-AB38-45B9-908B-9244E7480A36}
+		{22D8DD8D-D0D0-4E68-95B2-CC3476F7F514} = {E6A13FF0-6939-4E26-8399-D36B3059A01E}
 	EndGlobalSection
 EndGlobal

@@ -66,6 +66,7 @@ namespace BasicDDD.Infra.Data.Repositories
                                     RoleId, 
                                     Name,
                                     Email,
+                                    Password,
                                     Document,
                                     Inserted,
                                     BirthDate,

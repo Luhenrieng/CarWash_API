@@ -11,5 +11,7 @@ namespace BasicDDD.Domain.Interfaces.Service
         int Add(Entities.User user);
 
         List<Entities.User> List();
+
+        string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state);
     }
 }

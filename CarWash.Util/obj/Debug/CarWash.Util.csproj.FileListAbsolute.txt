@@ -1,0 +1,5 @@
+C:\Projetos\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.pdb
+C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.csprojResolveAssemblyReference.cache
+C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.pdb

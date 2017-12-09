@@ -12,3 +12,5 @@ C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Domain.pdb
 C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\CarWash.Application.csprojResolveAssemblyReference.cache
 C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.dll
 C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.pdb
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\CarWash.Util.pdb

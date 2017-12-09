@@ -28,6 +28,14 @@ namespace BasicDDD.BasicApplication.Controllers
         {
             try
             {
+                string number = "255";
+                string address = "Francisco+Morato";
+                string neighborhood = "Menck";
+                string city = "Osasco";
+                string state = "SP";
+
+                string strLocation = this._userAppService.GetLocationFromAddress(address, number, neighborhood, city, state);
+
                 List<Domain.Entities.User> users = this._userAppService.List();
                 List<UserViewModel> listUser = Mapper.Map<List<UserViewModel>>(users);
                 return new ApiResponse(true, listUser);

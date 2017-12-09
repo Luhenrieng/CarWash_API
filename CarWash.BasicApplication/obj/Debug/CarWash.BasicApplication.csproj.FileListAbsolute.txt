@@ -214,3 +214,5 @@ C:\Projetos\CarWash_API\CarWash.BasicApplication\obj\Debug\BasicDDD.BasicApplica
 C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\MySql.Data.dll
 C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\Dapper.dll
 C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\Dapper.xml
+C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\CarWash.Util.pdb
