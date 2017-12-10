@@ -23,6 +23,7 @@ namespace BasicDDD.Infra.Data.Repositories
                                                 RoleId, 
                                                 Name,
                                                 Email,
+                                                Password,
                                                 Document,
                                                 Inserted,
                                                 BirthDate,
@@ -32,14 +33,16 @@ namespace BasicDDD.Infra.Data.Repositories
                                                 Complement,
                                                 District,
                                                 City,
-                                                Country,
+                                                State,
                                                 PhoneNumber,
-                                                GeoLocation) 
+                                                GeoLocation,
+                                                Active) 
 
                                                 values(
                                                 @RoleId, 
                                                 @Name,
                                                 @Email,
+                                                @Password,
                                                 @Document,
                                                 @Inserted,
                                                 @BirthDate,
@@ -49,9 +52,10 @@ namespace BasicDDD.Infra.Data.Repositories
                                                 @Complement,
                                                 @District,
                                                 @City,
-                                                @Country,
+                                                @State,
                                                 @PhoneNumber,
-                                                @GeoLocation)";
+                                                @GeoLocation,
+                                                @Active)";
 
                 return con.Execute(sql, user);
             }

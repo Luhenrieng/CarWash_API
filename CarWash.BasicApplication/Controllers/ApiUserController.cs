@@ -28,14 +28,6 @@ namespace BasicDDD.BasicApplication.Controllers
         {
             try
             {
-                string number = "255";
-                string address = "Francisco+Morato";
-                string neighborhood = "Menck";
-                string city = "Osasco";
-                string state = "SP";
-
-                string strLocation = this._userAppService.GetLocationFromAddress(address, number, neighborhood, city, state);
-
                 List<Domain.Entities.User> users = this._userAppService.List();
                 List<UserViewModel> listUser = Mapper.Map<List<UserViewModel>>(users);
                 return new ApiResponse(true, listUser);
@@ -53,8 +45,14 @@ namespace BasicDDD.BasicApplication.Controllers
         }
 
         // POST: api/ApiUser
-        public void Post([FromBody]string value)
+        public ApiResponse Post([FromBody]UserViewModel user)
         {
+            string statusMessage = this._userAppService.Add(Mapper.Map<Domain.Entities.User>(user));
+
+            if(statusMessage == "")
+                return new ApiResponse(true, "Usuário cadastrado com sucesso.");
+            else
+                return new ApiResponse(false, statusMessage);
         }
 
         // PUT: api/ApiUser/5
@@ -66,6 +64,17 @@ namespace BasicDDD.BasicApplication.Controllers
         public void Delete(int id)
         {
         }
+
+        //public void Test()
+        //{
+        //    string number = "255";
+        //    string address = "Francisco+Morato";
+        //    string neighborhood = "Menck";
+        //    string city = "Osasco";
+        //    string state = "SP";
+
+        //    string strLocation = this._userAppService.GetLocationFromAddress(address, number, neighborhood, city, state);
+        //}
     }
     
 }

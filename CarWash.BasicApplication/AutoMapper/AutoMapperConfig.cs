@@ -11,6 +11,7 @@ namespace BasicDDD.BasicApplication.AutoMapper
         {
             CreateMap<Client, ClientViewModel>();
             CreateMap<User, UserViewModel>();
+            CreateMap<UserViewModel, User>();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace BasicDDD.Application
             this._userService = userService;
         }
 
-        public int Add(User user)
+        public string Add(User user)
         {
             return this._userService.Add(user);
         }
@@ -31,6 +31,11 @@ namespace BasicDDD.Application
         public string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state)
         {
             return this._userService.GetLocationFromAddress( address,  number,  neighborhood,  city,  state);
+        }
+
+        public string ValidateUser(User user)
+        {
+            return this._userService.ValidateUser(user);
         }
     }
 }

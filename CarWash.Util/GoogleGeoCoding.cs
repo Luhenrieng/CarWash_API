@@ -15,34 +15,39 @@ namespace CarWash.Util
     {
         public string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state)
         {
+            string responseFromServer = "";
             string key = "AIzaSyCscPXuYljvh6OS1-VM4UZe8lYaepNbgcU";
 
-            string Url = String.Format(@"https://maps.googleapis.com/maps/api/geocode/json?address={0}+{1},{2},{3},{4}&key={5}", number, address, neighborhood, city, state, key);
-            WebRequest request = WebRequest.Create(Url);
-            request.Credentials = CredentialCache.DefaultCredentials;
-            WebResponse response = request.GetResponse();
-
-            string status = ((HttpWebResponse)response).StatusDescription;
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            reader.Close();
-            response.Close();
-
-            MemoryStream stream1 = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(responseFromServer));
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(RootObject));
-            
-            stream1.Position = 0;
-            RootObject objeto = (RootObject)ser.ReadObject(stream1);
-
-            if(objeto != null && objeto.results != null && objeto.results[0].geometry != null)
+            try
             {
-                if(objeto.results[0].geometry.location != null)
+                string Url = String.Format(@"https://maps.googleapis.com/maps/api/geocode/json?address={0}+{1},{2},{3},{4}&key={5}", number, address, neighborhood, city, state, key);
+                WebRequest request = WebRequest.Create(Url);
+                request.Credentials = CredentialCache.DefaultCredentials;
+                WebResponse response = request.GetResponse();
+
+                string status = ((HttpWebResponse)response).StatusDescription;
+                Stream dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                responseFromServer = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+
+                MemoryStream stream1 = new MemoryStream(System.Text.Encoding.UTF8.GetBytes(responseFromServer));
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(RootObject));
+
+                stream1.Position = 0;
+                RootObject objeto = (RootObject)ser.ReadObject(stream1);
+
+                if (objeto != null && objeto.results != null && objeto.results[0].geometry != null)
                 {
-                    Location loc = objeto.results[0].geometry.location;
-                    responseFromServer = "Lat:" + loc.lat.ToString() + "&Lng:" + loc.lng.ToString();
+                    if (objeto.results[0].geometry.location != null)
+                    {
+                        Location loc = objeto.results[0].geometry.location;
+                        responseFromServer = "Lat:" + loc.lat.ToString() + "&Lng:" + loc.lng.ToString();
+                    }
                 }
             }
+            catch (Exception ex) { }
 
             return responseFromServer;
         }
