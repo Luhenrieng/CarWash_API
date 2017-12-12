@@ -37,5 +37,15 @@ namespace BasicDDD.Application
         {
             return this._userService.ValidateUser(user);
         }
+
+        public User GetByLogin(string email, string password)
+        {
+            return this._userService.GetByLogin(email, password);
+        }
+
+        public User GetByEmail(string email)
+        {
+            return this._userService.GetByEmail(email);
+        }
     }
 }

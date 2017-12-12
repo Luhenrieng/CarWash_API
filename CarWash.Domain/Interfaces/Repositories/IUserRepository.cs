@@ -11,5 +11,9 @@ namespace BasicDDD.Domain.Interfaces.Repositories
         int Add(Entities.User user);
 
         List<Entities.User> List();
+
+        Entities.User GetByLogin(string email, string password);
+
+        Entities.User GetByEmail(string email);
     }
 }

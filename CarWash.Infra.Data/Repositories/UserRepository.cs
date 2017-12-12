@@ -89,5 +89,63 @@ namespace BasicDDD.Infra.Data.Repositories
                 return con.Query<User>(sql).ToList();
             }
         }
+
+        public User GetByLogin(string email, string password)
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = @"select Id, 
+                                    RoleId, 
+                                    Name,
+                                    Email,
+                                    Password,
+                                    Document,
+                                    Inserted,
+                                    BirthDate,
+                                    Cep,
+                                    Address,
+                                    AddressNumber,
+                                    Complement,
+                                    District,
+                                    City,
+                                    State,
+                                    PhoneNumber,
+                                    GeoLocation,
+                                    Active
+                                    from User
+                                    where Email = '" + email + "' and Password = '" + password + "'";
+
+                return con.Query<User>(sql).ToList().FirstOrDefault();
+            }
+        }
+
+        public User GetByEmail(string email)
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = @"select Id, 
+                                    RoleId, 
+                                    Name,
+                                    Email,
+                                    Password,
+                                    Document,
+                                    Inserted,
+                                    BirthDate,
+                                    Cep,
+                                    Address,
+                                    AddressNumber,
+                                    Complement,
+                                    District,
+                                    City,
+                                    State,
+                                    PhoneNumber,
+                                    GeoLocation,
+                                    Active
+                                    from User
+                                    where Email = '" + email + "'";
+
+                return con.Query<User>(sql).ToList().FirstOrDefault();
+            }
+        }
     }
 }

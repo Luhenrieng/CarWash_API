@@ -25,18 +25,21 @@ namespace BasicDDD.Domain.Services
             try
             {
                 string stateMessage = ValidateUser(user);
-
                 if (stateMessage != "")
                     return stateMessage;
 
-                string strLocation = GetLocationFromAddress(user.Address, user.AddressNumber.ToString(), user.District, user.City, user.State);
+                User checkUser = this.GetByEmail(user.Email);
+                if(checkUser != null)
+                    return "E-mail já cadastrado.";
 
+                string strLocation = GetLocationFromAddress(user.Address, user.AddressNumber.ToString(), user.District, user.City, user.State);
                 if (string.IsNullOrEmpty(strLocation))
                     return "A geolocalização não pode ser vinculada, por favor verifique o endereço e tente novamente.";
 
                 user.Inserted = DateTime.Now;
                 user.Active = true;
                 user.GeoLocation = strLocation;
+                user.Password = Security.EncryptSHA512Managed(user.Password);
 
                 int cod = this._userRepository.Add(user);
                 return "";
@@ -90,6 +93,16 @@ namespace BasicDDD.Domain.Services
                 return "Campo telefone não pode ser nulo.";
 
             return "";
+        }
+
+        public User GetByLogin(string email, string password)
+        {
+            return this._userRepository.GetByLogin(email, Security.EncryptSHA512Managed(password));
+        }
+
+        public User GetByEmail(string email)
+        {
+            return this._userRepository.GetByEmail(email);
         }
     }
 }

@@ -13,6 +13,7 @@ using BasicDDD.Application;
 namespace BasicDDD.BasicApplication.Controllers
 {
     [BasicAuthentication]
+    [RoutePrefix("api/ApiUser")]
     public class ApiUserController : ApiController
     {
 
@@ -45,6 +46,8 @@ namespace BasicDDD.BasicApplication.Controllers
         }
 
         // POST: api/ApiUser
+        [Route("Register")]
+        [HttpPost]
         public ApiResponse Post([FromBody]UserViewModel user)
         {
             string statusMessage = this._userAppService.Add(Mapper.Map<Domain.Entities.User>(user));
@@ -63,6 +66,18 @@ namespace BasicDDD.BasicApplication.Controllers
         // DELETE: api/ApiUser/5
         public void Delete(int id)
         {
+        }
+
+        [Route("Login")]
+        [HttpPost]
+        public ApiResponse Login([FromBody]LoginViewModel login)
+        {
+            UserViewModel model = Mapper.Map<UserViewModel>(this._userAppService.GetByLogin(login.Email, login.Password));
+            
+            if(model != null)
+                return new ApiResponse(true, model);
+            else
+                return new ApiResponse(false, "E-mail ou senha inválido.");
         }
 
         //public void Test()

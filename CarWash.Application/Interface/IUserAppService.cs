@@ -16,5 +16,9 @@ namespace BasicDDD.Application.Interface
         string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state);
 
         string ValidateUser(Domain.Entities.User user);
+
+        Domain.Entities.User GetByLogin(string email, string password);
+
+        Domain.Entities.User GetByEmail(string email);
     }
 }
