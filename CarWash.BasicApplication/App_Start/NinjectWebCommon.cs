@@ -37,7 +37,10 @@ namespace BasicDDD.BasicApplication.App_Start
             Bind<ILogService>().To<LogService>();
             Bind<ILogAppService>().To<LogAppService>();
             Bind<ILogRepository>().To<LogRepository>();
-            
+
+            Bind<IUserTokenService>().To<UserTokenService>();
+            Bind<IUserTokenAppService>().To<UserTokenAppService>();
+            Bind<IUserTokenRepository>().To<UserTokenRepository>();
         }
     }
 

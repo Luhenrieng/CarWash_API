@@ -25,5 +25,6 @@ namespace BasicDDD.BasicApplication.Models
         public string PhoneNumber { get; set; }
         public string GeoLocation { get; set; }
         public bool Active { get; set; }
+        public string Token { get; set; }
     }
 }

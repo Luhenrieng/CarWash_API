@@ -18,10 +18,12 @@ namespace BasicDDD.BasicApplication.Controllers
     {
 
         private readonly IUserAppService _userAppService;
+        private readonly IUserTokenAppService _userTokenAppService;
 
-        public ApiUserController(IUserAppService userAppService)
+        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService)
         {
             this._userAppService = userAppService;
+            this._userTokenAppService = userTokenAppService;
         }
 
         // GET: api/ApiUser
@@ -75,7 +77,21 @@ namespace BasicDDD.BasicApplication.Controllers
             UserViewModel model = Mapper.Map<UserViewModel>(this._userAppService.GetByLogin(login.Email, login.Password));
             
             if(model != null)
-                return new ApiResponse(true, model);
+            {
+                UserTokenViewModel userToken = new UserTokenViewModel();
+                userToken.Inserted = DateTime.Now;
+                userToken.UserId = model.Id;
+                userToken.Token = "";
+
+                string token = this._userTokenAppService.Add(Mapper.Map<UserToken>(userToken));
+                if(!string.IsNullOrEmpty(token))
+                {
+                    model.Token = token;
+                    return new ApiResponse(true, model);
+                }
+                else
+                    return new ApiResponse(false, "Erro ao gravar o token.");
+            }
             else
                 return new ApiResponse(false, "E-mail ou senha inválido.");
         }

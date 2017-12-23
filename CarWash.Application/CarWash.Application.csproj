@@ -44,9 +44,11 @@
     <Compile Include="Interface\IClientAppService.cs" />
     <Compile Include="Interface\ILogAppService.cs" />
     <Compile Include="Interface\IUserAppService.cs" />
+    <Compile Include="Interface\IUserTokenAppService.cs" />
     <Compile Include="LogAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserAppService.cs" />
+    <Compile Include="UserTokenAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarWash.Domain\CarWash.Domain.csproj">

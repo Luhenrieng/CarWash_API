@@ -15,11 +15,67 @@ namespace BasicDDD.Domain.Services
     {
         private readonly Interfaces.Repositories.IUserRepository _userRepository;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="userRepository"></param>
         public UserService(Interfaces.Repositories.IUserRepository userRepository)
         {
             this._userRepository = userRepository;
         }
 
+        /// <summary>
+        /// List Method
+        /// </summary>
+        /// <returns></returns>
+        public List<User> List()
+        {
+            return this._userRepository.List();
+        }
+
+        /// <summary>
+        /// Get GeoLocation
+        /// </summary>
+        /// <param name="address"></param>
+        /// <param name="number"></param>
+        /// <param name="neighborhood"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <returns></returns>
+        public string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state)
+        {
+            GoogleGeoCoding geoCoding = new GoogleGeoCoding();
+            string str = geoCoding.GetLocationFromAddress( address,  number,  neighborhood,  city,  state);
+
+            return str;
+        }
+
+        /// <summary>
+        /// Get By Login Method
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public User GetByLogin(string email, string password)
+        {
+            return this._userRepository.GetByLogin(email, Security.EncryptSHA512Managed(password));
+        }
+
+        /// <summary>
+        /// Get By E-mail Method
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public User GetByEmail(string email)
+        {
+            return this._userRepository.GetByEmail(email);
+        }
+
+        /// <summary>
+        /// Add New User
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public string Add(User user)
         {
             try
@@ -29,7 +85,7 @@ namespace BasicDDD.Domain.Services
                     return stateMessage;
 
                 User checkUser = this.GetByEmail(user.Email);
-                if(checkUser != null)
+                if (checkUser != null)
                     return "E-mail já cadastrado.";
 
                 string strLocation = GetLocationFromAddress(user.Address, user.AddressNumber.ToString(), user.District, user.City, user.State);
@@ -50,19 +106,11 @@ namespace BasicDDD.Domain.Services
             }
         }
 
-        public List<User> List()
-        {
-            return this._userRepository.List();
-        }
-
-        public string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state)
-        {
-            GoogleGeoCoding geoCoding = new GoogleGeoCoding();
-            string str = geoCoding.GetLocationFromAddress( address,  number,  neighborhood,  city,  state);
-
-            return str;
-        }
-
+        /// <summary>
+        /// Validate User
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         public string ValidateUser(User user)
         {
             if (string.IsNullOrEmpty(user.Name))
@@ -93,16 +141,6 @@ namespace BasicDDD.Domain.Services
                 return "Campo telefone não pode ser nulo.";
 
             return "";
-        }
-
-        public User GetByLogin(string email, string password)
-        {
-            return this._userRepository.GetByLogin(email, Security.EncryptSHA512Managed(password));
-        }
-
-        public User GetByEmail(string email)
-        {
-            return this._userRepository.GetByEmail(email);
         }
     }
 }
