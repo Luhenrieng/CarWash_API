@@ -15,6 +15,11 @@ namespace BasicDDD.Domain.Services
     {
         private readonly Interfaces.Repositories.IUserRepository _userRepository;
 
+        public List<User> ListWashers(string token, int maxRadius, string latitude, string longitude)
+        {
+            return this._userRepository.List();
+        }
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -72,6 +77,16 @@ namespace BasicDDD.Domain.Services
         }
 
         /// <summary>
+        /// Get User By Token Method
+        /// </summary>
+        /// <param name="token"></param>
+        /// <returns></returns>
+        public User GetByToken(string token)
+        {
+            return this._userRepository.GetByToken(token);
+        }
+
+        /// <summary>
         /// Add New User
         /// </summary>
         /// <param name="user"></param>
@@ -94,7 +109,8 @@ namespace BasicDDD.Domain.Services
 
                 user.Inserted = DateTime.Now;
                 user.Active = true;
-                user.GeoLocation = strLocation;
+                user.Latitude = strLocation.Split('&')[0];
+                user.Longitude = strLocation.Split('&')[1];
                 user.Password = Security.EncryptSHA512Managed(user.Password);
 
                 int cod = this._userRepository.Add(user);

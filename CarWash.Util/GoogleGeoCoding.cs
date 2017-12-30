@@ -43,7 +43,7 @@ namespace CarWash.Util
                     if (objeto.results[0].geometry.location != null)
                     {
                         Location loc = objeto.results[0].geometry.location;
-                        responseFromServer = "Lat:" + loc.lat.ToString() + "&Lng:" + loc.lng.ToString();
+                        responseFromServer = loc.lat.ToString() + "&" + loc.lng.ToString();
                     }
                 }
             }

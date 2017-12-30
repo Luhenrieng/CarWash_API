@@ -23,7 +23,8 @@ namespace BasicDDD.BasicApplication.Models
         public string City { get; set; }
         public string State { get; set; }
         public string PhoneNumber { get; set; }
-        public string GeoLocation { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
         public bool Active { get; set; }
         public string Token { get; set; }
     }

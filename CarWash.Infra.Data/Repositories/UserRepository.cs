@@ -35,7 +35,8 @@ namespace BasicDDD.Infra.Data.Repositories
                                                 City,
                                                 State,
                                                 PhoneNumber,
-                                                GeoLocation,
+                                                Latitude,
+                                                Longitude,
                                                 Active) 
 
                                                 values(
@@ -54,7 +55,8 @@ namespace BasicDDD.Infra.Data.Repositories
                                                 @City,
                                                 @State,
                                                 @PhoneNumber,
-                                                @GeoLocation,
+                                                @Latitude,
+                                                @Longitude,
                                                 @Active)";
 
                 return con.Execute(sql, user);
@@ -82,7 +84,8 @@ namespace BasicDDD.Infra.Data.Repositories
                                     City,
                                     State,
                                     PhoneNumber,
-                                    GeoLocation,
+                                    Latitude,
+                                    Longitude,
                                     Active
                                     from User";
 
@@ -110,7 +113,8 @@ namespace BasicDDD.Infra.Data.Repositories
                                     City,
                                     State,
                                     PhoneNumber,
-                                    GeoLocation,
+                                    Latitude,
+                                    Longitude,
                                     Active
                                     from User
                                     where Email = '" + email + "' and Password = '" + password + "'";
@@ -139,10 +143,42 @@ namespace BasicDDD.Infra.Data.Repositories
                                     City,
                                     State,
                                     PhoneNumber,
-                                    GeoLocation,
+                                    Latitude,
+                                    Longitude,
                                     Active
                                     from User
                                     where Email = '" + email + "'";
+
+                return con.Query<User>(sql).ToList().FirstOrDefault();
+            }
+        }
+
+        public User GetByToken(string token)
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = @"select U.Id, 
+	                            RoleId, 
+	                            Name,
+	                            Email,
+	                            Password,
+	                            Document,
+	                            U.Inserted,
+	                            BirthDate,
+	                            Cep,
+	                            Address,
+	                            AddressNumber,
+	                            Complement,
+	                            District,
+	                            City,
+	                            State,
+	                            PhoneNumber,
+	                            Latitude,
+	                            Longitude,
+	                            Active
+	                            from User U
+                                inner join UserToken UT on UT.UserId = U.Id
+                                where UT.Token = '" + token + "'";
 
                 return con.Query<User>(sql).ToList().FirstOrDefault();
             }

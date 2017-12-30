@@ -47,5 +47,10 @@ namespace BasicDDD.Application
         {
             return this._userService.GetByEmail(email);
         }
+
+        public User GetByToken(string token)
+        {
+            return this._userService.GetByToken(token);
+        }
     }
 }

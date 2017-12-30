@@ -60,6 +60,49 @@ namespace BasicDDD.BasicApplication.Controllers
                 return new ApiResponse(false, statusMessage);
         }
 
+        [Route("ListWashers")]
+        [HttpPost]
+        public ApiResponse ListWashers([FromBody]Models.ApiRequest.ListWashersRequest request)
+        {
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if(userViewModel == null)
+            {
+                return new ApiResponse(false, "Token inválido.");
+            }
+
+            List<UserViewModel> listUser = Mapper.Map<List<UserViewModel>>(this._userAppService.List());
+            List<UserViewModel> listUserResponse = new List<UserViewModel>();
+
+            if (listUser != null)
+            {
+                decimal requestLat = Convert.ToDecimal(request.Latitude.Replace(".",",").Substring(0, request.Latitude.IndexOf(',') + 4).Replace(",",""));
+                decimal requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, request.Longitude.IndexOf(',') + 4).Replace(",", ""));
+                decimal maxLat, minLat, maxLng, minLng;
+                decimal radius = request.MaxRadius * 3;
+                
+                maxLat = requestLat + radius;
+                minLat = requestLat - radius;
+                maxLng = requestLng + radius;
+                minLng = requestLng - radius;
+
+                foreach (var user in listUser.Where(c => c.Active).Where(c => c.RoleId == 2 || c.RoleId == 3))
+                {
+                    decimal lat = Convert.ToDecimal(user.Latitude.Substring(0, user.Latitude.IndexOf(',') + 4).Replace(",", ""));
+                    decimal lng = Convert.ToDecimal(user.Longitude.Substring(0, user.Longitude.IndexOf(',') + 4).Replace(",", ""));
+
+                    if((lat < maxLat && lat > minLat) && 
+                        (lng < maxLng && lng > minLng))
+                    {
+                        listUserResponse.Add(user);
+                    }
+                }
+
+                return new ApiResponse(true, listUserResponse);
+            }
+            return new ApiResponse(true, "");
+        }
+
         // PUT: api/ApiUser/5
         public void Put(int id, [FromBody]string value)
         {

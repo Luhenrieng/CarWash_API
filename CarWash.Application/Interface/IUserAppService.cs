@@ -20,5 +20,7 @@ namespace BasicDDD.Application.Interface
         Domain.Entities.User GetByLogin(string email, string password);
 
         Domain.Entities.User GetByEmail(string email);
+
+        Domain.Entities.User GetByToken(string token);
     }
 }
