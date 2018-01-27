@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BasicDDD.Domain.Entities.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,5 +23,7 @@ namespace BasicDDD.Application.Interface
         Domain.Entities.User GetByEmail(string email);
 
         Domain.Entities.User GetByToken(string token);
+
+        List<ServiceDescription> ListService(int userId);
     }
 }

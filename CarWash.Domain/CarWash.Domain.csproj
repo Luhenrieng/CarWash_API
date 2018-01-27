@@ -32,8 +32,10 @@
   <ItemGroup>
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Log.cs" />
+    <Compile Include="Entities\ServicesXUser.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserToken.cs" />
+    <Compile Include="Entities\ValueObjects\ServiceDescription.cs" />
     <Compile Include="Interfaces\Repositories\IClientRepository.cs" />
     <Compile Include="Interfaces\Repositories\ILogRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />

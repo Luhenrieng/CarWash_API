@@ -1,0 +1,13 @@
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\BasicDDD.Infra.Data.dll.config
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\BasicDDD.Infra.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\BasicDDD.Infra.Data.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\BasicDDD.Domain.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\Dapper.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\MySql.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\BasicDDD.Domain.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\Dapper.xml
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Release\CarWash.Util.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Release\CarWash.Data.csprojResolveAssemblyReference.cache
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Release\BasicDDD.Infra.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Release\BasicDDD.Infra.Data.pdb

@@ -60,6 +60,15 @@ namespace BasicDDD.BasicApplication.Controllers
                 return new ApiResponse(false, statusMessage);
         }
 
+        [Route("ListServices")]
+        [HttpPost]
+        public ApiResponse ListServices([FromBody]int userId)
+        {
+            List<ServiceDescriptionViewModel> services = Mapper.Map<List<ServiceDescriptionViewModel>>(this._userAppService.ListService(userId));
+
+            return new ApiResponse(true, services);
+        }
+
         [Route("ListWashers")]
         [HttpPost]
         public ApiResponse ListWashers([FromBody]Models.ApiRequest.ListWashersRequest request)

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BasicDDD.Domain.Entities;
 using BasicDDD.Domain.Interfaces.Service;
+using BasicDDD.Domain.Entities.ValueObjects;
 
 namespace BasicDDD.Application
 {
@@ -51,6 +52,11 @@ namespace BasicDDD.Application
         public User GetByToken(string token)
         {
             return this._userService.GetByToken(token);
+        }
+
+        public List<ServiceDescription> ListService(int userId)
+        {
+            return this._userService.ListService(userId);
         }
     }
 }

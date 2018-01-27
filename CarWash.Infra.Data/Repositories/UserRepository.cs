@@ -8,6 +8,7 @@ using BasicDDD.Domain.Entities;
 using System.Configuration;
 using MySql.Data.MySqlClient;
 using Dapper;
+using BasicDDD.Domain.Entities.ValueObjects;
 
 namespace BasicDDD.Infra.Data.Repositories
 {
@@ -60,6 +61,17 @@ namespace BasicDDD.Infra.Data.Repositories
                                                 @Active)";
 
                 return con.Execute(sql, user);
+            }
+        }
+
+
+        public List<ServiceDescription> ListService(int userId)
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = "select SU.UserId, SU.ServiceId, S.Name, S.DefaultPrice, SU.SpecificPrice from Services_X_User SU inner join Service S on S.Id = SU.ServiceId where SU.UserId = " + userId;
+
+                return con.Query<ServiceDescription>(sql).ToList();
             }
         }
 

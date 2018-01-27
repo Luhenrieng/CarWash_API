@@ -1,0 +1,9 @@
+C:\Projetos\CarWash_API\CarWash.Application\bin\Release\BasicDDD.Application.dll
+C:\Projetos\CarWash_API\CarWash.Application\bin\Release\BasicDDD.Application.pdb
+C:\Projetos\CarWash_API\CarWash.Application\bin\Release\BasicDDD.Domain.dll
+C:\Projetos\CarWash_API\CarWash.Application\bin\Release\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Application\bin\Release\BasicDDD.Domain.pdb
+C:\Projetos\CarWash_API\CarWash.Application\bin\Release\CarWash.Util.pdb
+C:\Projetos\CarWash_API\CarWash.Application\obj\Release\CarWash.Application.csprojResolveAssemblyReference.cache
+C:\Projetos\CarWash_API\CarWash.Application\obj\Release\BasicDDD.Application.dll
+C:\Projetos\CarWash_API\CarWash.Application\obj\Release\BasicDDD.Application.pdb

@@ -8,6 +8,7 @@ using BasicDDD.Domain.Entities;
 using System.Net;
 using System.IO;
 using CarWash.Util;
+using BasicDDD.Domain.Entities.ValueObjects;
 
 namespace BasicDDD.Domain.Services
 {
@@ -157,6 +158,11 @@ namespace BasicDDD.Domain.Services
                 return "Campo telefone não pode ser nulo.";
 
             return "";
+        }
+
+        public List<ServiceDescription> ListService(int userId)
+        {
+            return this._userRepository.ListService(userId);
         }
     }
 }
