@@ -60,11 +60,27 @@ namespace BasicDDD.BasicApplication.Controllers
                 return new ApiResponse(false, statusMessage);
         }
 
+        //[Route("ListServices")]
+        //[HttpPost]
+        //public ApiResponse ListServices([FromBody]int userId)
+        //{
+        //    List<ServiceDescriptionViewModel> services = Mapper.Map<List<ServiceDescriptionViewModel>>(this._userAppService.ListService(userId));
+
+        //    return new ApiResponse(true, services);
+        //}
+
         [Route("ListServices")]
         [HttpPost]
-        public ApiResponse ListServices([FromBody]int userId)
+        public ApiResponse ListServices([FromBody]Models.ApiRequest.ListServicesRequest request)
         {
-            List<ServiceDescriptionViewModel> services = Mapper.Map<List<ServiceDescriptionViewModel>>(this._userAppService.ListService(userId));
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+            {
+                return new ApiResponse(false, "Token inválido.");
+            }
+
+            List<ServiceDescriptionViewModel> services = Mapper.Map<List<ServiceDescriptionViewModel>>(this._userAppService.ListService(request.WasherId));
 
             return new ApiResponse(true, services);
         }
