@@ -17,6 +17,8 @@ namespace BasicDDD.BasicApplication.AutoMapper
             CreateMap<UserToken, UserTokenViewModel>();
             CreateMap<ServiceDescription, ServiceDescriptionViewModel>();
             CreateMap<ServiceDescriptionViewModel, ServiceDescription>();
+            CreateMap<ServiceViewModel, Service>();
+            CreateMap<Service, ServiceViewModel>();
         }
     }
 }

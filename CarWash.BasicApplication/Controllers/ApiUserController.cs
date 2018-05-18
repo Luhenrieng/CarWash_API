@@ -19,11 +19,13 @@ namespace BasicDDD.BasicApplication.Controllers
 
         private readonly IUserAppService _userAppService;
         private readonly IUserTokenAppService _userTokenAppService;
+        private readonly IServiceAppService _serviceAppService;
 
-        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService)
+        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService)
         {
             this._userAppService = userAppService;
             this._userTokenAppService = userTokenAppService;
+            this._serviceAppService = serviceAppService;
         }
 
         // GET: api/ApiUser
@@ -69,9 +71,25 @@ namespace BasicDDD.BasicApplication.Controllers
         //    return new ApiResponse(true, services);
         //}
 
-        [Route("ListServices")]
+        [Route("ListAllServices")]
         [HttpPost]
-        public ApiResponse ListServices([FromBody]Models.ApiRequest.ListServicesRequest request)
+        public ApiResponse ListAllServices([FromBody]Models.ApiRequest.UserTokenRequest request)
+        {
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+            {
+                return new ApiResponse(false, "Token inválido.");
+            }
+
+            List<ServiceViewModel> services = Mapper.Map<List<ServiceViewModel>>(this._serviceAppService.ListAllServices());
+
+            return new ApiResponse(true, services);
+        }
+
+        [Route("ListServicesByWasher")]
+        [HttpPost]
+        public ApiResponse ListServicesByWasher([FromBody]Models.ApiRequest.ListServicesRequest request)
         {
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 

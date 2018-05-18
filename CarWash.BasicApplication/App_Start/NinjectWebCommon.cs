@@ -30,6 +30,10 @@ namespace BasicDDD.BasicApplication.App_Start
             Bind<IClientAppService>().To<ClientAppService>();
             Bind<IClientRepository>().To<ClientRepository>();
 
+            Bind<IServiceService>().To<ServiceService>();
+            Bind<IServiceAppService>().To<ServiceAppService>();
+            Bind<IServiceRepository>().To<ServiceRepository>();
+
             Bind<IUserService>().To<UserService>();
             Bind<IUserAppService>().To<UserAppService>();
             Bind<IUserRepository>().To<UserRepository>();

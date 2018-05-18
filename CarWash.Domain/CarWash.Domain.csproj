@@ -32,21 +32,25 @@
   <ItemGroup>
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Log.cs" />
+    <Compile Include="Entities\Service.cs" />
     <Compile Include="Entities\ServicesXUser.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserToken.cs" />
     <Compile Include="Entities\ValueObjects\ServiceDescription.cs" />
     <Compile Include="Interfaces\Repositories\IClientRepository.cs" />
     <Compile Include="Interfaces\Repositories\ILogRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IServiceRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUserTokenRepository.cs" />
     <Compile Include="Interfaces\Service\IClientService.cs" />
     <Compile Include="Interfaces\Service\ILogService.cs" />
+    <Compile Include="Interfaces\Service\IServiceService.cs" />
     <Compile Include="Interfaces\Service\IUserService.cs" />
     <Compile Include="Interfaces\Service\IUserTokenService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ClientService.cs" />
     <Compile Include="Services\LogService.cs" />
+    <Compile Include="Services\ServiceService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\UserTokenService.cs" />
   </ItemGroup>
