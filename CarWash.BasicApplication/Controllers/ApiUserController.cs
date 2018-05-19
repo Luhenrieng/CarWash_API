@@ -71,6 +71,31 @@ namespace BasicDDD.BasicApplication.Controllers
         //    return new ApiResponse(true, services);
         //}
 
+        [Route("AddServiceToWasher")]
+        [HttpPost]
+        public ApiResponse AddServiceToWasher([FromBody]Models.ApiRequest.AddServiceToWasherRequest request)
+        {
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+
+            try
+            {
+                ServicesXUser serviceUser = new ServicesXUser();
+                serviceUser.ServiceId = request.ServiceId;
+                serviceUser.UserId = userViewModel.Id;
+                serviceUser.SpecificPrice = request.SpecificPrice;
+                this._serviceAppService.AddServiceToWasher(serviceUser);
+
+                return new ApiResponse(true, "Serviço adicionado com sucesso.");
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
+        }
+
         [Route("ListAllServices")]
         [HttpPost]
         public ApiResponse ListAllServices([FromBody]Models.ApiRequest.UserTokenRequest request)

@@ -19,6 +19,11 @@ namespace BasicDDD.Application
             this._serviceService = serviceService;
         }
 
+        public int AddServiceToWasher(ServicesXUser serviceXUser)
+        {
+            return this._serviceService.AddServiceToWasher(serviceXUser);
+        }
+
         public List<Service> ListAllServices()
         {
             return this._serviceService.ListAllServices();

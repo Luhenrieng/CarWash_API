@@ -30,5 +30,10 @@ namespace BasicDDD.Domain.Services
         {
             return this._serviceRepository.ListAllServices();
         }
+
+        public int AddServiceToWasher(ServicesXUser serviceXUser)
+        {
+            return this._serviceRepository.AddServiceToWasher(serviceXUser);
+        }
     }
 }

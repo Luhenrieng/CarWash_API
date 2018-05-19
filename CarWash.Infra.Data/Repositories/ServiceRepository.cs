@@ -26,5 +26,22 @@ namespace BasicDDD.Infra.Data.Repositories
                 return con.Query<Service>(sql).ToList();
             }
         }
+
+        public int AddServiceToWasher(ServicesXUser serviceXUser)
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = @"insert into Services_X_User( 
+                            UserId,
+                            ServiceId,
+                            SpecificPrice) 
+                            values(
+                            @UserId, 
+                            @ServiceId,
+                            @SpecificPrice)";
+
+                return con.Execute(sql, serviceXUser);
+            }
+        }
     }
 }
