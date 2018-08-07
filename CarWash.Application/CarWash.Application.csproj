@@ -43,10 +43,12 @@
     <Compile Include="ClientAppService.cs" />
     <Compile Include="Interface\IClientAppService.cs" />
     <Compile Include="Interface\ILogAppService.cs" />
+    <Compile Include="Interface\IOrderedAppService.cs" />
     <Compile Include="Interface\IServiceAppService.cs" />
     <Compile Include="Interface\IUserAppService.cs" />
     <Compile Include="Interface\IUserTokenAppService.cs" />
     <Compile Include="LogAppService.cs" />
+    <Compile Include="OrderedAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceAppService.cs" />
     <Compile Include="UserAppService.cs" />
