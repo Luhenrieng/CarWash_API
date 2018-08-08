@@ -20,12 +20,14 @@ namespace BasicDDD.BasicApplication.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IUserTokenAppService _userTokenAppService;
         private readonly IServiceAppService _serviceAppService;
+        private readonly IOrderedAppService _orderedAppService;
 
-        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService)
+        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService, IOrderedAppService orderedAppService)
         {
             this._userAppService = userAppService;
             this._userTokenAppService = userTokenAppService;
             this._serviceAppService = serviceAppService;
+            this._orderedAppService = orderedAppService;
         }
 
         // GET: api/ApiUser
@@ -174,6 +176,7 @@ namespace BasicDDD.BasicApplication.Controllers
         // PUT: api/ApiUser/5
         public void Put(int id, [FromBody]string value)
         {
+            string str = value;
         }
 
         // DELETE: api/ApiUser/5
@@ -205,6 +208,13 @@ namespace BasicDDD.BasicApplication.Controllers
             }
             else
                 return new ApiResponse(false, "E-mail ou senha inválido.");
+        }
+
+        [Route("CreateOrder")]
+        [HttpPost]
+        public ApiResponse CreateOrder([FromBody]string str)
+        {
+            return null;
         }
 
         //public void Test()
