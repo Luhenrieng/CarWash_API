@@ -212,8 +212,17 @@ namespace BasicDDD.BasicApplication.Controllers
 
         [Route("CreateOrder")]
         [HttpPost]
-        public ApiResponse CreateOrder([FromBody]string str)
+        public ApiResponse CreateOrder([FromBody]Models.CreateOrderViewModel order)
         {
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(order.Token));
+
+            if (userViewModel == null)
+            {
+                return new ApiResponse(false, "Token inválido.");
+            }
+            
+            bool b = _orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order));
+
             return null;
         }
 

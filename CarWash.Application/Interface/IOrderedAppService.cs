@@ -9,5 +9,6 @@ namespace BasicDDD.Application.Interface
     public interface IOrderedAppService
     {
         int Add(Domain.Entities.Ordered ordered);
+        bool CreateOrder(Domain.Entities.ValueObjects.CreateOrder order);
     }
 }

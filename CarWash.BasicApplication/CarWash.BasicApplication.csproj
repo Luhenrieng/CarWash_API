@@ -273,6 +273,7 @@
     <Compile Include="Models\ApiRequest\ListWashersRequest.cs" />
     <Compile Include="Models\ApiRequest\UserTokenRequest.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\CreateOrderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ServiceDescriptionViewModel.cs" />

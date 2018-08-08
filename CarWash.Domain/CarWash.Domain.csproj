@@ -38,6 +38,7 @@
     <Compile Include="Entities\ServicesXUser.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserToken.cs" />
+    <Compile Include="Entities\ValueObjects\CreateOrder.cs" />
     <Compile Include="Entities\ValueObjects\ServiceDescription.cs" />
     <Compile Include="Interfaces\Repositories\IClientRepository.cs" />
     <Compile Include="Interfaces\Repositories\ILogRepository.cs" />

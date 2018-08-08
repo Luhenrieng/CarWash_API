@@ -13,9 +13,19 @@ namespace BasicDDD.Application
     {
         private readonly IOrderedService _orderedService;
 
+        public OrderedAppService(IOrderedService orderedService)
+        {
+            this._orderedService = orderedService;
+        }
+
         public int Add(Ordered ordered)
         {
             return this._orderedService.Add(ordered);
+        }
+
+        public bool CreateOrder(Domain.Entities.ValueObjects.CreateOrder order)
+        {
+            return _orderedService.CreateOrder(order);
         }
     }
 }
