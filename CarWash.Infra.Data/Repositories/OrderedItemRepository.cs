@@ -19,10 +19,11 @@ namespace BasicDDD.Infra.Data.Repositories
         {
             using (MySqlConnection con = new MySqlConnection(conString))
             {
-                var sql = @"insert into OrderedItem(OrderedId, ServiceIdId, Price) 
-                                            values(@OrderedId, @ServiceIdId, @Price)";
+                var sql = @"insert into OrderedItem(OrderedId, ServiceId, Price) 
+                                            values(@OrderedId, @ServiceId, @Price);
+                                            Select @@Identity;";
 
-                return con.Execute(sql, orderedItem);
+                return con.Query<int>(sql, orderedItem).Single();
             }
         }
     }
