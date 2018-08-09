@@ -217,13 +217,19 @@ namespace BasicDDD.BasicApplication.Controllers
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(order.Token));
 
             if (userViewModel == null)
-            {
                 return new ApiResponse(false, "Token inválido.");
-            }
-            
-            bool b = _orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order));
 
-            return null;
+            try
+            {
+                if (_orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order)))
+                    return new ApiResponse(true, "Pedido criado com sucesso.");
+                else
+                    return new ApiResponse(false, "Erro ao criar pedido, por favor tente novamente mais tarde.");
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
         }
 
         //public void Test()

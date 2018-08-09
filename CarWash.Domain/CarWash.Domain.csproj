@@ -42,6 +42,7 @@
     <Compile Include="Entities\ValueObjects\ServiceDescription.cs" />
     <Compile Include="Interfaces\Repositories\IClientRepository.cs" />
     <Compile Include="Interfaces\Repositories\ILogRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IOrderedItemRepository.cs" />
     <Compile Include="Interfaces\Repositories\IOrderedRepository.cs" />
     <Compile Include="Interfaces\Repositories\IServiceRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUserRepository.cs" />

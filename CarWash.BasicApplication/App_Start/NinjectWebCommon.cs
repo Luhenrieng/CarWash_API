@@ -49,6 +49,7 @@ namespace BasicDDD.BasicApplication.App_Start
             Bind<IOrderedService>().To<OrderedService>();
             Bind<IOrderedAppService>().To<OrderedAppService>();
             Bind<IOrderedRepository>().To<OrderedRepository>();
+            Bind<IOrderedItemRepository>().To<OrderedItemRepository>();
         }
     }
 

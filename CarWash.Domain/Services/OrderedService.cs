@@ -13,10 +13,12 @@ namespace BasicDDD.Domain.Services
     public class OrderedService : IOrderedService
     {
         private readonly IOrderedRepository _orderedRepository;
+        private readonly IOrderedItemRepository _orderedItemRepository;
 
-        public OrderedService(IOrderedRepository orderedRepository)
+        public OrderedService(IOrderedRepository orderedRepository, IOrderedItemRepository orderedItemRepository)
         {
             this._orderedRepository = orderedRepository;
+            this._orderedItemRepository = orderedItemRepository;
         }
 
         public int Add(Ordered ordered)
@@ -47,7 +49,7 @@ namespace BasicDDD.Domain.Services
                         item.OrderedId = ordered.Id;
                         item.ServiceId = i.ServiceId;
                         item.Price = i.Price;
-                        
+                        item.Id = _orderedItemRepository.Add(item);
                     }
                 }
             }
