@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BasicDDD.Domain.Entities.ValueObjects;
+using BasicDDD.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +10,8 @@ namespace BasicDDD.Application.Interface
 {
     public interface IOrderedAppService
     {
-        int Add(Domain.Entities.Ordered ordered);
-        bool CreateOrder(Domain.Entities.ValueObjects.CreateOrder order);
+        int Add(Ordered ordered);
+        bool CreateOrder(CreateOrder order);
+        IEnumerable<OrderReport> ListAllOrderReport();
     }
 }

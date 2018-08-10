@@ -26,6 +26,11 @@ namespace BasicDDD.Domain.Services
             return _orderedRepository.Add(ordered);
         }
 
+        public IEnumerable<OrderReport> ListAllOrderReport()
+        {
+            return this._orderedRepository.ListAllOrderReport();
+        }
+
         public bool CreateOrder(CreateOrder order)
         {
             Ordered ordered;
@@ -38,7 +43,7 @@ namespace BasicDDD.Domain.Services
                 ordered.WasherId = order.WasherId;
                 ordered.Created = DateTime.Now;
                 ordered.TotalPrice = order.TotalPrice;
-                ordered.Status = 1;
+                ordered.Status = (int)Ordered.EnumOrderedStatus.Iniciado;
                 ordered.Id = _orderedRepository.Add(ordered);
 
                 if(ordered.Id > 0 && order.ListItens != null)
