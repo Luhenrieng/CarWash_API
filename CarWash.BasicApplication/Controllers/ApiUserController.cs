@@ -20,13 +20,16 @@ namespace BasicDDD.BasicApplication.Controllers
         private readonly IUserAppService _userAppService;
         private readonly IUserTokenAppService _userTokenAppService;
         private readonly IServiceAppService _serviceAppService;
+        private readonly IOrderedAppService _orderedAppService;
 
-        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService)
+        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService, IOrderedAppService orderedAppService)
         {
             this._userAppService = userAppService;
             this._userTokenAppService = userTokenAppService;
             this._serviceAppService = serviceAppService;
+            this._orderedAppService = orderedAppService;
         }
+
 
         // GET: api/ApiUser
         public ApiResponse Get()
@@ -43,11 +46,13 @@ namespace BasicDDD.BasicApplication.Controllers
             }
         }
 
+
         // GET: api/ApiUser/5
         public string Get(int id)
         {
             return "value";
         }
+
 
         // POST: api/ApiUser
         [Route("Register")]
@@ -62,14 +67,6 @@ namespace BasicDDD.BasicApplication.Controllers
                 return new ApiResponse(false, statusMessage);
         }
 
-        //[Route("ListServices")]
-        //[HttpPost]
-        //public ApiResponse ListServices([FromBody]int userId)
-        //{
-        //    List<ServiceDescriptionViewModel> services = Mapper.Map<List<ServiceDescriptionViewModel>>(this._userAppService.ListService(userId));
-
-        //    return new ApiResponse(true, services);
-        //}
 
         [Route("AddServiceToWasher")]
         [HttpPost]
@@ -96,6 +93,7 @@ namespace BasicDDD.BasicApplication.Controllers
             }
         }
 
+
         [Route("ListAllServices")]
         [HttpPost]
         public ApiResponse ListAllServices([FromBody]Models.ApiRequest.UserTokenRequest request)
@@ -112,6 +110,7 @@ namespace BasicDDD.BasicApplication.Controllers
             return new ApiResponse(true, services);
         }
 
+
         [Route("ListServicesByWasher")]
         [HttpPost]
         public ApiResponse ListServicesByWasher([FromBody]Models.ApiRequest.ListServicesRequest request)
@@ -127,6 +126,7 @@ namespace BasicDDD.BasicApplication.Controllers
 
             return new ApiResponse(true, services);
         }
+
 
         [Route("ListWashers")]
         [HttpPost]
@@ -171,15 +171,19 @@ namespace BasicDDD.BasicApplication.Controllers
             return new ApiResponse(true, "");
         }
 
+
         // PUT: api/ApiUser/5
         public void Put(int id, [FromBody]string value)
         {
+            string str = value;
         }
+
 
         // DELETE: api/ApiUser/5
         public void Delete(int id)
         {
         }
+
 
         [Route("Login")]
         [HttpPost]
@@ -205,6 +209,50 @@ namespace BasicDDD.BasicApplication.Controllers
             }
             else
                 return new ApiResponse(false, "E-mail ou senha inválido.");
+        }
+
+
+        [Route("CreateOrder")]
+        [HttpPost]
+        public ApiResponse CreateOrder([FromBody]Models.CreateOrderViewModel order)
+        {
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(order.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+
+            try
+            {
+                if (_orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order)))
+                    return new ApiResponse(true, "Pedido criado com sucesso.");
+                else
+                    return new ApiResponse(false, "Erro ao criar pedido, por favor tente novamente mais tarde.");
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
+        }
+
+
+        [Route("ListAllOrders")]
+        [HttpPost]
+        public ApiResponse ListAllOrders([FromBody]Models.ApiRequest.UserTokenRequest request)
+        {
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+
+            try
+            {
+                List<OrderReportViewModel> listOrders = Mapper.Map<List<OrderReportViewModel>>(this._orderedAppService.ListAllOrderReport().ToList());
+                return new ApiResponse(true, listOrders);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
         }
 
         //public void Test()

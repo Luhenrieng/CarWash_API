@@ -5,3 +5,10 @@ C:\Projetos\CarWash_API\CarWash.Domain\obj\Debug\BasicDDD.Domain.dll
 C:\Projetos\CarWash_API\CarWash.Domain\obj\Debug\BasicDDD.Domain.pdb
 C:\Projetos\CarWash_API\CarWash.Domain\bin\Debug\CarWash.Util.dll
 C:\Projetos\CarWash_API\CarWash.Domain\bin\Debug\CarWash.Util.pdb
+C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Domain\bin\Debug\BasicDDD.Domain.dll
+C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Domain\bin\Debug\BasicDDD.Domain.pdb
+C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Domain\bin\Debug\CarWash.Util.dll
+C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Domain\bin\Debug\CarWash.Util.pdb
+C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Domain\obj\Debug\CarWash.Domain.csprojResolveAssemblyReference.cache
+C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Domain\obj\Debug\BasicDDD.Domain.dll
+C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Domain\obj\Debug\BasicDDD.Domain.pdb

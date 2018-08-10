@@ -45,6 +45,11 @@ namespace BasicDDD.BasicApplication.App_Start
             Bind<IUserTokenService>().To<UserTokenService>();
             Bind<IUserTokenAppService>().To<UserTokenAppService>();
             Bind<IUserTokenRepository>().To<UserTokenRepository>();
+
+            Bind<IOrderedService>().To<OrderedService>();
+            Bind<IOrderedAppService>().To<OrderedAppService>();
+            Bind<IOrderedRepository>().To<OrderedRepository>();
+            Bind<IOrderedItemRepository>().To<OrderedItemRepository>();
         }
     }
 

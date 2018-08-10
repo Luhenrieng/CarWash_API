@@ -19,6 +19,12 @@ namespace BasicDDD.BasicApplication.AutoMapper
             CreateMap<ServiceDescriptionViewModel, ServiceDescription>();
             CreateMap<ServiceViewModel, Service>();
             CreateMap<Service, ServiceViewModel>();
+            CreateMap<CreateOrderViewModel, CreateOrder>();
+            CreateMap<CreateOrder, CreateOrderViewModel>();
+            CreateMap<OrderItemViewModel, OrderItem>();
+            CreateMap<OrderItem, OrderItemViewModel>();
+            CreateMap<OrderReport, OrderReportViewModel>();
+            CreateMap<OrderReportViewModel, OrderReport>();
         }
     }
 }
