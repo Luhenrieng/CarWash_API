@@ -28,7 +28,40 @@ namespace BasicDDD.Domain.Services
 
         public IEnumerable<OrderReport> ListAllOrderReport()
         {
-            return this._orderedRepository.ListAllOrderReport();
+            var listOrderReport = this._orderedRepository.ListAllOrderReport();
+
+            var listOrderItemReport = this._orderedItemRepository.ListAllOrderItem();
+
+            foreach (var order in listOrderReport)
+            {
+                var itensToOrder = listOrderItemReport.Where(i => i.OrderId == order.OrderId).ToList();
+
+                if (itensToOrder != null && itensToOrder.Count() > 0)
+                {
+                    order.Itens = itensToOrder;
+                }
+            }
+
+            return listOrderReport.OrderBy(o => o.OrderId);
+        }
+
+        public IEnumerable<OrderReport> ListOrderByUser(int userId, int userRoleId)
+        {
+            var listOrderReport = this._orderedRepository.ListOrderByUser(userId, userRoleId);
+
+            var listOrderItemReport = this._orderedItemRepository.ListOrderItemByUser(userId, userRoleId);
+
+            foreach(var order in listOrderReport)
+            {
+                var itensToOrder = listOrderItemReport.Where(i => i.OrderId == order.OrderId).ToList();
+
+                if(itensToOrder != null && itensToOrder.Count() > 0)
+                {
+                    order.Itens = itensToOrder;
+                }
+            }
+
+            return listOrderReport.OrderBy(o => o.OrderId);
         }
 
         public bool CreateOrder(CreateOrder order)

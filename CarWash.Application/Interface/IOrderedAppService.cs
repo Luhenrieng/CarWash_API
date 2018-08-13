@@ -13,5 +13,6 @@ namespace BasicDDD.Application.Interface
         int Add(Ordered ordered);
         bool CreateOrder(CreateOrder order);
         IEnumerable<OrderReport> ListAllOrderReport();
+        IEnumerable<OrderReport> ListOrderByUser(int userId, int UserRoleId);
     }
 }

@@ -11,5 +11,6 @@ namespace BasicDDD.Domain.Interfaces.Repositories
     {
         int Add(Entities.Ordered ordered);
         IEnumerable<OrderReport> ListAllOrderReport();
+        IEnumerable<OrderReport> ListOrderByUser(int userId, int UserRoleId);
     }
 }

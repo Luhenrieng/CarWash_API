@@ -48,5 +48,30 @@ namespace BasicDDD.Infra.Data.Repositories
                 return con.Query<OrderReport>(sql);
             }
         }
+
+        public IEnumerable<OrderReport> ListOrderByUser(int userId, int UserRoleId)
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = @"Select
+                            O.Id OrderId,
+                            O.Created,
+                            O.TotalPrice,
+                            O.Status,
+                            U1.Id UserId,
+                            U1.Name UserName,
+                            U2.Id WasherId,
+                            U2.Name WasherName 
+                            from Ordered O
+                            Inner Join User U1 on U1.Id = O.UserId
+                            Inner Join User U2 on U2.Id = O.WasherId";
+
+                var where = UserRoleId == 1 ? String.Format(" where UserId = {0}", userId) : String.Format(" where WasherId = {0}", userId);
+
+                var query = sql + where;
+
+                return con.Query<OrderReport>(query);
+            }
+        }
     }
 }

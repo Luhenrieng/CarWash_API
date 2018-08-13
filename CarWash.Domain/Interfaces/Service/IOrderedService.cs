@@ -12,6 +12,7 @@ namespace BasicDDD.Domain.Interfaces.Service
         int Add(Entities.Ordered ordered);
         bool CreateOrder(Entities.ValueObjects.CreateOrder order);
         IEnumerable<OrderReport> ListAllOrderReport();
+        IEnumerable<OrderReport> ListOrderByUser(int userId, int UserRoleId);
 
     }
 }

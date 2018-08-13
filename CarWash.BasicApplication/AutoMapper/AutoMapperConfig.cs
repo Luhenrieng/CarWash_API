@@ -25,6 +25,9 @@ namespace BasicDDD.BasicApplication.AutoMapper
             CreateMap<OrderItem, OrderItemViewModel>();
             CreateMap<OrderReport, OrderReportViewModel>();
             CreateMap<OrderReportViewModel, OrderReport>();
+
+            CreateMap<OrderItemReport, OrderItemReportViewModel>();
+            CreateMap<OrderItemReportViewModel, OrderItemReport>();
         }
     }
 }

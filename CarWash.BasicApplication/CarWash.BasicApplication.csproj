@@ -276,6 +276,7 @@
     <Compile Include="Models\CreateOrderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\OrderItemReportViewModel.cs" />
     <Compile Include="Models\OrderReportViewModel.cs" />
     <Compile Include="Models\ServiceDescriptionViewModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />

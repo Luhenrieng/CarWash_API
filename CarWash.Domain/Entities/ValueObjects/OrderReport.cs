@@ -16,5 +16,6 @@ namespace BasicDDD.Domain.Entities.ValueObjects
         public string UserName { get; set; }
         public int WasherId { get; set; }
         public string WasherName { get; set; }
+        public List<OrderItemReport> Itens { get; set; }
     }
 }

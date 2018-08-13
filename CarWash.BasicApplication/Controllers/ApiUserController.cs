@@ -255,6 +255,27 @@ namespace BasicDDD.BasicApplication.Controllers
             }
         }
 
+
+        [Route("ListOrderByUser")]
+        [HttpPost]
+        public ApiResponse ListOrderByUser([FromBody]Models.ApiRequest.UserTokenRequest request)
+        {
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+
+            try
+            {
+                List<OrderReportViewModel> listOrders = Mapper.Map<List<OrderReportViewModel>>(this._orderedAppService.ListOrderByUser(userViewModel.Id, userViewModel.RoleId).ToList());
+                return new ApiResponse(true, listOrders);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
+        }
+
         //public void Test()
         //{
         //    string number = "255";
