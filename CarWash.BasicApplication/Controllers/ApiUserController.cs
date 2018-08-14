@@ -72,6 +72,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse AddServiceToWasher([FromBody]Models.ApiRequest.AddServiceToWasherRequest request)
         {
+            if(request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -98,6 +101,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListAllServices([FromBody]Models.ApiRequest.UserTokenRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -115,6 +121,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListServicesByWasher([FromBody]Models.ApiRequest.ListServicesRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -132,6 +141,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListWashers([FromBody]Models.ApiRequest.ListWashersRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if(userViewModel == null)
@@ -189,6 +201,13 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse Login([FromBody]LoginViewModel login)
         {
+            if (login == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+            else if(String.IsNullOrEmpty(login.Email))
+                return new ApiResponse(false, "E-mail não pode ser nulo.");
+            else if (String.IsNullOrEmpty(login.Password))
+                return new ApiResponse(false, "Senha não pode ser nula.");
+
             UserViewModel model = Mapper.Map<UserViewModel>(this._userAppService.GetByLogin(login.Email, login.Password));
             
             if(model != null)
@@ -216,6 +235,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse CreateOrder([FromBody]Models.CreateOrderViewModel order)
         {
+            if (order == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(order.Token));
 
             if (userViewModel == null)
@@ -239,6 +261,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListAllOrders([FromBody]Models.ApiRequest.UserTokenRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -260,6 +285,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListOrderByUser([FromBody]Models.ApiRequest.UserTokenRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
