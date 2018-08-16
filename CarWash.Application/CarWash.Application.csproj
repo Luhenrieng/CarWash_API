@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientAppService.cs" />
+    <Compile Include="EvaluationAppService.cs" />
     <Compile Include="Interface\IClientAppService.cs" />
+    <Compile Include="Interface\IEvaluationAppService.cs" />
     <Compile Include="Interface\ILogAppService.cs" />
     <Compile Include="Interface\IOrderedAppService.cs" />
     <Compile Include="Interface\IServiceAppService.cs" />
