@@ -258,17 +258,18 @@
     <Compile Include="AutoMapper\Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="AutoMapper\AutoMapperConfig.cs" />
     <Compile Include="BasicAuthenticationAttribute.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ApiUserController.cs" />
-    <Compile Include="Controllers\ClientController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Models\Controllers\AccountController.cs" />
+    <Compile Include="Models\Controllers\ApiUserController.cs" />
+    <Compile Include="Models\Controllers\ClientController.cs" />
+    <Compile Include="Models\Controllers\HomeController.cs" />
+    <Compile Include="Models\Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApiRequest\AddServiceToWasherRequest.cs" />
+    <Compile Include="Models\ApiRequest\EvaluateUserRequest.cs" />
     <Compile Include="Models\ApiRequest\ListServicesRequest.cs" />
     <Compile Include="Models\ApiRequest\ListWashersRequest.cs" />
     <Compile Include="Models\ApiRequest\UserTokenRequest.cs" />

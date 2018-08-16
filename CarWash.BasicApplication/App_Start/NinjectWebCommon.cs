@@ -50,6 +50,10 @@ namespace BasicDDD.BasicApplication.App_Start
             Bind<IOrderedAppService>().To<OrderedAppService>();
             Bind<IOrderedRepository>().To<OrderedRepository>();
             Bind<IOrderedItemRepository>().To<OrderedItemRepository>();
+
+            Bind<IEvaluationService>().To<EvaluationService>();
+            Bind<IEvaluationAppService>().To<EvaluationAppService>();
+            Bind<IEvaluationRepository>().To<EvaluationRepository>();
         }
     }
 

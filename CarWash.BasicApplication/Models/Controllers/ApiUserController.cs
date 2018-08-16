@@ -21,13 +21,15 @@ namespace BasicDDD.BasicApplication.Controllers
         private readonly IUserTokenAppService _userTokenAppService;
         private readonly IServiceAppService _serviceAppService;
         private readonly IOrderedAppService _orderedAppService;
+        private readonly IEvaluationAppService _evaluationAppService;
 
-        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService, IOrderedAppService orderedAppService)
+        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService, IOrderedAppService orderedAppService, IEvaluationAppService evaluationAppService)
         {
             this._userAppService = userAppService;
             this._userTokenAppService = userTokenAppService;
             this._serviceAppService = serviceAppService;
             this._orderedAppService = orderedAppService;
+            this._evaluationAppService = evaluationAppService;
         }
 
 
@@ -304,16 +306,28 @@ namespace BasicDDD.BasicApplication.Controllers
             }
         }
 
-        //public void Test()
-        //{
-        //    string number = "255";
-        //    string address = "Francisco+Morato";
-        //    string neighborhood = "Menck";
-        //    string city = "Osasco";
-        //    string state = "SP";
 
-        //    string strLocation = this._userAppService.GetLocationFromAddress(address, number, neighborhood, city, state);
-        //}
+        [Route("EvaluateUser")]
+        [HttpPost]
+        public ApiResponse EvaluateUser([FromBody]Models.ApiRequest.EvaluateUserRequest request)
+        {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+            
+
+            string message = this._evaluationAppService.Add(Mapper.Map<Domain.Entities.ValueObjects.EvaluateUser>(request));
+
+            if (message == "")
+                return new ApiResponse(true, "Avaliação registrada com sucesso.");
+            else
+                return new ApiResponse(false, message);
+        }
+        
     }
     
 }

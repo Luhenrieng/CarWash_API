@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BasicDDD.Domain.Entities.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace BasicDDD.Domain.Interfaces.Service
 {
     public interface IEvaluationService
     {
-        int Add(Entities.Evaluation evaluation);
+        string Add(EvaluateUser evaluate);
     }
 }

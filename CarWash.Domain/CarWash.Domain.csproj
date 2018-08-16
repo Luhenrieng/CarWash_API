@@ -40,6 +40,7 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserToken.cs" />
     <Compile Include="Entities\ValueObjects\CreateOrder.cs" />
+    <Compile Include="Entities\ValueObjects\EvaluateUser.cs" />
     <Compile Include="Entities\ValueObjects\OrderItemReport.cs" />
     <Compile Include="Entities\ValueObjects\OrderReport.cs" />
     <Compile Include="Entities\ValueObjects\ServiceDescription.cs" />

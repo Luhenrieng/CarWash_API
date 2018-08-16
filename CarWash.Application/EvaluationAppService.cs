@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BasicDDD.Domain.Entities;
 using BasicDDD.Domain.Interfaces.Service;
+using BasicDDD.Domain.Entities.ValueObjects;
 
 namespace BasicDDD.Application
 {
@@ -18,9 +19,9 @@ namespace BasicDDD.Application
             this._evaluationService = evaluationService;
         }
 
-        public int Add(Evaluation evaluation)
+        public string Add(EvaluateUser evaluate)
         {
-            return this._evaluationService.Add(evaluation);
+            return this._evaluationService.Add(evaluate);
         }
     }
 }
