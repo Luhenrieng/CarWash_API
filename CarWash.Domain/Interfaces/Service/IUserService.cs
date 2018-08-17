@@ -13,6 +13,8 @@ namespace BasicDDD.Domain.Interfaces.Service
 
         List<Entities.User> List();
 
+        List<Washer> ListWasher();
+
         string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state);
 
         string ValidateUser(Entities.User user);

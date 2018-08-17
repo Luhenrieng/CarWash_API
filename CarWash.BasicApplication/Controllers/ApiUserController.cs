@@ -153,36 +153,55 @@ namespace BasicDDD.BasicApplication.Controllers
                 return new ApiResponse(false, "Token inválido.");
             }
 
-            List<UserViewModel> listUser = Mapper.Map<List<UserViewModel>>(this._userAppService.List());
-            List<UserViewModel> listUserResponse = new List<UserViewModel>();
-
-            if (listUser != null)
+            try
             {
-                decimal requestLat = Convert.ToDecimal(request.Latitude.Replace(".",",").Substring(0, request.Latitude.IndexOf(',') + 4).Replace(",",""));
-                decimal requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, request.Longitude.IndexOf(',') + 4).Replace(",", ""));
-                decimal maxLat, minLat, maxLng, minLng;
-                decimal radius = request.MaxRadius * 3;
-                
-                maxLat = requestLat + radius;
-                minLat = requestLat - radius;
-                maxLng = requestLng + radius;
-                minLng = requestLng - radius;
+                List<WasherViewModel> listUser = Mapper.Map<List<WasherViewModel>>(this._userAppService.ListWasher());
+                List<WasherViewModel> listUserResponse = new List<WasherViewModel>();
 
-                foreach (var user in listUser.Where(c => c.Active).Where(c => c.RoleId == 2 || c.RoleId == 3))
+                if (listUser != null)
                 {
-                    decimal lat = Convert.ToDecimal(user.Latitude.Substring(0, user.Latitude.IndexOf(',') + 4).Replace(",", ""));
-                    decimal lng = Convert.ToDecimal(user.Longitude.Substring(0, user.Longitude.IndexOf(',') + 4).Replace(",", ""));
+                    decimal requestLat = 0;
+                    decimal requestLng = 0;
 
-                    if((lat < maxLat && lat > minLat) && 
-                        (lng < maxLng && lng > minLng))
+                    try
                     {
-                        listUserResponse.Add(user);
+                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, request.Latitude.IndexOf(',') + 4).Replace(",", ""));
+                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, request.Longitude.IndexOf(',') + 4).Replace(",", ""));
                     }
-                }
+                    catch (Exception ex)
+                    {
+                        return new ApiResponse(false, "Campos 'latitude' ou 'longitude' estão no formato incorreto.");
+                    }
+                    
+                    decimal maxLat, minLat, maxLng, minLng;
+                    decimal radius = request.MaxRadius * 3;
 
-                return new ApiResponse(true, listUserResponse);
+                    maxLat = requestLat + radius;
+                    minLat = requestLat - radius;
+                    maxLng = requestLng + radius;
+                    minLng = requestLng - radius;
+
+                    foreach (var user in listUser.Where(c => c.Active).Where(c => c.RoleId == 2 || c.RoleId == 3))
+                    {
+                        decimal lat = Convert.ToDecimal(user.Latitude.Substring(0, user.Latitude.IndexOf(',') + 4).Replace(",", ""));
+                        decimal lng = Convert.ToDecimal(user.Longitude.Substring(0, user.Longitude.IndexOf(',') + 4).Replace(",", ""));
+
+                        if ((lat < maxLat && lat > minLat) &&
+                            (lng < maxLng && lng > minLng))
+                        {
+                            listUserResponse.Add(user);
+                        }
+                    }
+
+                    return new ApiResponse(true, listUserResponse);
+                }
+                return new ApiResponse(true, "");
             }
-            return new ApiResponse(true, "");
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
+            
         }
 
 

@@ -105,6 +105,45 @@ namespace BasicDDD.Infra.Data.Repositories
             }
         }
 
+        public List<Washer> ListWasher()
+        {
+            using (MySqlConnection con = new MySqlConnection(conString))
+            {
+                var sql = @"select Id, 
+                            RoleId, 
+                            Name,
+                            Email,
+                            Document,
+                            Inserted,
+                            BirthDate,
+                            Cep,
+                            Address,
+                            AddressNumber,
+                            Complement,
+                            District,
+                            City,
+                            State,
+                            PhoneNumber,
+                            Latitude,
+                            Longitude,
+                            Active,
+                            (Select Count(*) from Evaluation Where UserIdTo = User.Id) as EvaluationAmount,
+                            (Select Sum(Evaluation.Score) from Evaluation Where UserIdTo = User.Id) as ScoreSum
+                            from User
+                            Where Active = 1";
+
+                var listWasher = con.Query<Washer>(sql).ToList();
+
+                foreach(var washer in listWasher)
+                {
+                    if(washer.ScoreSum.HasValue)
+                        washer.ScoreAverage = ((decimal)washer.ScoreSum / (decimal)washer.EvaluationAmount);
+                }
+
+                return listWasher;
+            }
+        }
+
         public User GetByLogin(string email, string password)
         {
             using (MySqlConnection con = new MySqlConnection(conString))

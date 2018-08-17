@@ -28,9 +28,11 @@ namespace BasicDDD.BasicApplication.AutoMapper
             CreateMap<OrderReportViewModel, OrderReport>();
             CreateMap<OrderItemReport, OrderItemReportViewModel>();
             CreateMap<OrderItemReportViewModel, OrderItemReport>();
-            
             CreateMap<EvaluateUserRequest, EvaluateUser>();
             CreateMap<EvaluateUser, EvaluateUserRequest>();
+
+            CreateMap<WasherViewModel, Washer>();
+            CreateMap<Washer, WasherViewModel>();
         }
     }
 }
