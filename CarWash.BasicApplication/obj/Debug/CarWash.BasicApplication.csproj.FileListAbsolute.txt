@@ -326,3 +326,6 @@ C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.BasicApplication\bin\Da
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.BasicApplication\obj\Debug\CarWash.BasicApplication.csprojResolveAssemblyReference.cache
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.BasicApplication\obj\Debug\BasicDDD.BasicApplication.dll
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.BasicApplication\obj\Debug\BasicDDD.BasicApplication.pdb
+C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\System.Web.Cors.dll
+C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\System.Web.Http.Cors.dll
+C:\Projetos\CarWash_API\CarWash.BasicApplication\bin\System.Web.Http.Cors.xml

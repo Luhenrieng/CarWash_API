@@ -9,11 +9,13 @@ using BasicDDD.Application.Interface;
 using BasicDDD.BasicApplication.Models;
 using BasicDDD.Domain.Entities;
 using BasicDDD.Application;
+using System.Web.Http.Cors;
 
 namespace BasicDDD.BasicApplication.Controllers
 {
     [BasicAuthentication]
     [RoutePrefix("api/ApiUser")]
+    [EnableCors(origins: "http://localhost, http://localhost:80, http://localhost:4200", headers: "*", methods: "*")]
     public class ApiUserController : ApiController
     {
 
