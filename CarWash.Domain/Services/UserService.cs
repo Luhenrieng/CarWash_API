@@ -164,5 +164,10 @@ namespace BasicDDD.Domain.Services
         {
             return this._userRepository.ListService(userId);
         }
+
+        public List<Washer> ListWasher()
+        {
+            return this._userRepository.ListWasher();
+        }
     }
 }

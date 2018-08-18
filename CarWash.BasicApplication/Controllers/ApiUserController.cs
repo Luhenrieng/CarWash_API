@@ -23,13 +23,15 @@ namespace BasicDDD.BasicApplication.Controllers
         private readonly IUserTokenAppService _userTokenAppService;
         private readonly IServiceAppService _serviceAppService;
         private readonly IOrderedAppService _orderedAppService;
+        private readonly IEvaluationAppService _evaluationAppService;
 
-        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService, IOrderedAppService orderedAppService)
+        public ApiUserController(IUserAppService userAppService, IUserTokenAppService userTokenAppService, IServiceAppService serviceAppService, IOrderedAppService orderedAppService, IEvaluationAppService evaluationAppService)
         {
             this._userAppService = userAppService;
             this._userTokenAppService = userTokenAppService;
             this._serviceAppService = serviceAppService;
             this._orderedAppService = orderedAppService;
+            this._evaluationAppService = evaluationAppService;
         }
 
 
@@ -74,6 +76,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse AddServiceToWasher([FromBody]Models.ApiRequest.AddServiceToWasherRequest request)
         {
+            if(request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -100,6 +105,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListAllServices([FromBody]Models.ApiRequest.UserTokenRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -117,6 +125,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListServicesByWasher([FromBody]Models.ApiRequest.ListServicesRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -134,6 +145,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListWashers([FromBody]Models.ApiRequest.ListWashersRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if(userViewModel == null)
@@ -141,36 +155,55 @@ namespace BasicDDD.BasicApplication.Controllers
                 return new ApiResponse(false, "Token inválido.");
             }
 
-            List<UserViewModel> listUser = Mapper.Map<List<UserViewModel>>(this._userAppService.List());
-            List<UserViewModel> listUserResponse = new List<UserViewModel>();
-
-            if (listUser != null)
+            try
             {
-                decimal requestLat = Convert.ToDecimal(request.Latitude.Replace(".",",").Substring(0, request.Latitude.IndexOf(',') + 4).Replace(",",""));
-                decimal requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, request.Longitude.IndexOf(',') + 4).Replace(",", ""));
-                decimal maxLat, minLat, maxLng, minLng;
-                decimal radius = request.MaxRadius * 3;
-                
-                maxLat = requestLat + radius;
-                minLat = requestLat - radius;
-                maxLng = requestLng + radius;
-                minLng = requestLng - radius;
+                List<WasherViewModel> listUser = Mapper.Map<List<WasherViewModel>>(this._userAppService.ListWasher());
+                List<WasherViewModel> listUserResponse = new List<WasherViewModel>();
 
-                foreach (var user in listUser.Where(c => c.Active).Where(c => c.RoleId == 2 || c.RoleId == 3))
+                if (listUser != null)
                 {
-                    decimal lat = Convert.ToDecimal(user.Latitude.Substring(0, user.Latitude.IndexOf(',') + 4).Replace(",", ""));
-                    decimal lng = Convert.ToDecimal(user.Longitude.Substring(0, user.Longitude.IndexOf(',') + 4).Replace(",", ""));
+                    decimal requestLat = 0;
+                    decimal requestLng = 0;
 
-                    if((lat < maxLat && lat > minLat) && 
-                        (lng < maxLng && lng > minLng))
+                    try
                     {
-                        listUserResponse.Add(user);
+                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, request.Latitude.IndexOf(',') + 4).Replace(",", ""));
+                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, request.Longitude.IndexOf(',') + 4).Replace(",", ""));
                     }
-                }
+                    catch (Exception ex)
+                    {
+                        return new ApiResponse(false, "Campos 'latitude' ou 'longitude' estão no formato incorreto.");
+                    }
+                    
+                    decimal maxLat, minLat, maxLng, minLng;
+                    decimal radius = request.MaxRadius * 3;
 
-                return new ApiResponse(true, listUserResponse);
+                    maxLat = requestLat + radius;
+                    minLat = requestLat - radius;
+                    maxLng = requestLng + radius;
+                    minLng = requestLng - radius;
+
+                    foreach (var user in listUser.Where(c => c.Active).Where(c => c.RoleId == 2 || c.RoleId == 3))
+                    {
+                        decimal lat = Convert.ToDecimal(user.Latitude.Substring(0, user.Latitude.IndexOf(',') + 4).Replace(",", ""));
+                        decimal lng = Convert.ToDecimal(user.Longitude.Substring(0, user.Longitude.IndexOf(',') + 4).Replace(",", ""));
+
+                        if ((lat < maxLat && lat > minLat) &&
+                            (lng < maxLng && lng > minLng))
+                        {
+                            listUserResponse.Add(user);
+                        }
+                    }
+
+                    return new ApiResponse(true, listUserResponse);
+                }
+                return new ApiResponse(true, "");
             }
-            return new ApiResponse(true, "");
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
+            
         }
 
 
@@ -191,6 +224,13 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse Login([FromBody]LoginViewModel login)
         {
+            if (login == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+            else if(String.IsNullOrEmpty(login.Email))
+                return new ApiResponse(false, "E-mail não pode ser nulo.");
+            else if (String.IsNullOrEmpty(login.Password))
+                return new ApiResponse(false, "Senha não pode ser nula.");
+
             UserViewModel model = Mapper.Map<UserViewModel>(this._userAppService.GetByLogin(login.Email, login.Password));
             
             if(model != null)
@@ -218,6 +258,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse CreateOrder([FromBody]Models.CreateOrderViewModel order)
         {
+            if (order == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(order.Token));
 
             if (userViewModel == null)
@@ -241,6 +284,9 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse ListAllOrders([FromBody]Models.ApiRequest.UserTokenRequest request)
         {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
 
             if (userViewModel == null)
@@ -257,16 +303,52 @@ namespace BasicDDD.BasicApplication.Controllers
             }
         }
 
-        //public void Test()
-        //{
-        //    string number = "255";
-        //    string address = "Francisco+Morato";
-        //    string neighborhood = "Menck";
-        //    string city = "Osasco";
-        //    string state = "SP";
 
-        //    string strLocation = this._userAppService.GetLocationFromAddress(address, number, neighborhood, city, state);
-        //}
+        [Route("ListOrderByUser")]
+        [HttpPost]
+        public ApiResponse ListOrderByUser([FromBody]Models.ApiRequest.UserTokenRequest request)
+        {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+
+            try
+            {
+                List<OrderReportViewModel> listOrders = Mapper.Map<List<OrderReportViewModel>>(this._orderedAppService.ListOrderByUser(userViewModel.Id, userViewModel.RoleId).ToList());
+                return new ApiResponse(true, listOrders);
+            }
+            catch (Exception ex)
+            {
+                return new ApiResponse(false, ex.Message);
+            }
+        }
+
+
+        [Route("EvaluateUser")]
+        [HttpPost]
+        public ApiResponse EvaluateUser([FromBody]Models.ApiRequest.EvaluateUserRequest request)
+        {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+            
+
+            string message = this._evaluationAppService.Add(Mapper.Map<Domain.Entities.ValueObjects.EvaluateUser>(request));
+
+            if (message == "")
+                return new ApiResponse(true, "Avaliação registrada com sucesso.");
+            else
+                return new ApiResponse(false, message);
+        }
+        
     }
     
 }

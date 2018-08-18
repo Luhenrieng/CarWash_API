@@ -58,5 +58,10 @@ namespace BasicDDD.Application
         {
             return this._userService.ListService(userId);
         }
+
+        public List<Washer> ListWasher()
+        {
+            return this._userService.ListWasher();
+        }
     }
 }

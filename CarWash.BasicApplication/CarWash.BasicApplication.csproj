@@ -279,6 +279,7 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApiRequest\AddServiceToWasherRequest.cs" />
+    <Compile Include="Models\ApiRequest\EvaluateUserRequest.cs" />
     <Compile Include="Models\ApiRequest\ListServicesRequest.cs" />
     <Compile Include="Models\ApiRequest\ListWashersRequest.cs" />
     <Compile Include="Models\ApiRequest\UserTokenRequest.cs" />
@@ -286,11 +287,13 @@
     <Compile Include="Models\CreateOrderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\OrderItemReportViewModel.cs" />
     <Compile Include="Models\OrderReportViewModel.cs" />
     <Compile Include="Models\ServiceDescriptionViewModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\UserTokenViewModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\WasherViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

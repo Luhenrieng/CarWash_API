@@ -13,6 +13,8 @@ namespace BasicDDD.Domain.Interfaces.Repositories
 
         List<Entities.User> List();
 
+        List<Washer> ListWasher();
+
         Entities.User GetByLogin(string email, string password);
 
         Entities.User GetByEmail(string email);

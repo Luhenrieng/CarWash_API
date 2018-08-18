@@ -33,5 +33,10 @@ namespace BasicDDD.Application
         {
             return _orderedService.ListAllOrderReport();
         }
+
+        public IEnumerable<OrderReport> ListOrderByUser(int userId, int UserRoleId)
+        {
+            return _orderedService.ListOrderByUser(userId, UserRoleId);
+        }
     }
 }

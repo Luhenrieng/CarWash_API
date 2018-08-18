@@ -15,5 +15,6 @@ namespace BasicDDD.BasicApplication.Models
         public string UserName { get; set; }
         public int WasherId { get; set; }
         public string WasherName { get; set; }
+        public List<OrderItemReportViewModel> Itens { get; set; }
     }
 }

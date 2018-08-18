@@ -14,6 +14,8 @@ namespace BasicDDD.Application.Interface
 
         List<Domain.Entities.User> List();
 
+        List<Washer> ListWasher();
+
         string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state);
 
         string ValidateUser(Domain.Entities.User user);
