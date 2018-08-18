@@ -5,19 +5,6 @@ C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\bin\Debug\B
 C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\CarWash.Data.csprojResolveAssemblyReference.cache
 C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
 C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.pdb
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Domain.dll
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Domain.pdb
-C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\CarWash.Data.csprojResolveAssemblyReference.cache
-C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
-C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\Dapper.dll
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\Dapper.xml
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll.config
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\MySql.Data.dll
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\CarWash.Util.dll
-C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\CarWash.Util.pdb
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll.config
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.pdb
@@ -31,3 +18,16 @@ C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Infra.Data\bin\Debug\Ca
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Infra.Data\obj\Debug\CarWash.Data.csprojResolveAssemblyReference.cache
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll.config
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Infra.Data.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Domain.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\Dapper.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\MySql.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\BasicDDD.Domain.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\Dapper.xml
+C:\Projetos\CarWash_API\CarWash.Infra.Data\bin\Debug\CarWash.Util.pdb
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\CarWash.Data.csprojResolveAssemblyReference.cache
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.dll
+C:\Projetos\CarWash_API\CarWash.Infra.Data\obj\Debug\BasicDDD.Infra.Data.pdb

@@ -167,8 +167,11 @@ namespace BasicDDD.BasicApplication.Controllers
 
                     try
                     {
-                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, request.Latitude.IndexOf(',') + 4).Replace(",", ""));
-                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, request.Longitude.IndexOf(',') + 4).Replace(",", ""));
+                        var indexCharLat = request.Latitude.Contains(".") ? request.Latitude.IndexOf('.') : request.Latitude.IndexOf(',');
+                        var indexCharLong = request.Longitude.Contains(".") ? request.Longitude.IndexOf('.') : request.Longitude.IndexOf(',');
+
+                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, indexCharLat + 4).Replace(",", ""));
+                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, indexCharLong + 4).Replace(",", ""));
                     }
                     catch (Exception ex)
                     {

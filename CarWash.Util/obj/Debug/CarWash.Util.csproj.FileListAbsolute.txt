@@ -1,10 +1,9 @@
-C:\Projetos\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.dll
-C:\Projetos\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.pdb
-C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.csprojResolveAssemblyReference.cache
-C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.dll
-C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.pdb
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.dll
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.pdb
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.csprojResolveAssemblyReference.cache
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.dll
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.pdb
+C:\Projetos\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Util\bin\Debug\CarWash.Util.pdb
+C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Util\obj\Debug\CarWash.Util.pdb
