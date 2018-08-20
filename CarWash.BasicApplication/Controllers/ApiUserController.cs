@@ -9,11 +9,13 @@ using BasicDDD.Application.Interface;
 using BasicDDD.BasicApplication.Models;
 using BasicDDD.Domain.Entities;
 using BasicDDD.Application;
+using System.Web.Http.Cors;
 
 namespace BasicDDD.BasicApplication.Controllers
 {
     [BasicAuthentication]
     [RoutePrefix("api/ApiUser")]
+    [EnableCors(origins: "http://localhost, http://localhost:80, http://localhost:4200", headers: "*", methods: "*")]
     public class ApiUserController : ApiController
     {
 
@@ -165,8 +167,11 @@ namespace BasicDDD.BasicApplication.Controllers
 
                     try
                     {
-                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, request.Latitude.IndexOf(',') + 4).Replace(",", ""));
-                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, request.Longitude.IndexOf(',') + 4).Replace(",", ""));
+                        var indexCharLat = request.Latitude.Contains(".") ? request.Latitude.IndexOf('.') : request.Latitude.IndexOf(',');
+                        var indexCharLong = request.Longitude.Contains(".") ? request.Longitude.IndexOf('.') : request.Longitude.IndexOf(',');
+
+                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, indexCharLat + 4).Replace(",", ""));
+                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, indexCharLong + 4).Replace(",", ""));
                     }
                     catch (Exception ex)
                     {

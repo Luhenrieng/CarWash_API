@@ -5,15 +5,6 @@ C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Application\bin\Debug\
 C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Application\obj\Debug\CarWash.Application.csprojResolveAssemblyReference.cache
 C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Application\obj\Debug\BasicDDD.Application.dll
 C:\Users\Luiz Henrique\Desktop\BasicDDD\BasicDDD\BasicDDD.Application\obj\Debug\BasicDDD.Application.pdb
-C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Application.dll
-C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Application.pdb
-C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Domain.dll
-C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Domain.pdb
-C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\CarWash.Application.csprojResolveAssemblyReference.cache
-C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.dll
-C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.pdb
-C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\CarWash.Util.dll
-C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\CarWash.Util.pdb
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Application.dll
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Application.pdb
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Domain.dll
@@ -23,3 +14,12 @@ C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Application\bin\Debug\C
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Application\obj\Debug\CarWash.Application.csprojResolveAssemblyReference.cache
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.dll
 C:\Users\Convex\Desktop\Luiz\CarWash\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.pdb
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Application.dll
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Application.pdb
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Domain.dll
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\CarWash.Util.dll
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\BasicDDD.Domain.pdb
+C:\Projetos\CarWash_API\CarWash.Application\bin\Debug\CarWash.Util.pdb
+C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\CarWash.Application.csprojResolveAssemblyReference.cache
+C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.dll
+C:\Projetos\CarWash_API\CarWash.Application\obj\Debug\BasicDDD.Application.pdb
