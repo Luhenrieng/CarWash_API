@@ -148,16 +148,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/26/2017 20:07:14</publishTime>
     </File>
     <File Include="bin/BasicDDD.Application.dll">
-      <publishTime>08/10/2018 20:11:47</publishTime>
+      <publishTime>08/19/2018 10:48:24</publishTime>
     </File>
     <File Include="bin/BasicDDD.BasicApplication.dll">
-      <publishTime>08/10/2018 20:11:53</publishTime>
+      <publishTime>08/23/2018 21:56:36</publishTime>
     </File>
     <File Include="bin/BasicDDD.Domain.dll">
-      <publishTime>08/10/2018 20:11:46</publishTime>
+      <publishTime>08/19/2018 10:48:21</publishTime>
     </File>
     <File Include="bin/BasicDDD.Infra.Data.dll">
-      <publishTime>08/10/2018 20:11:46</publishTime>
+      <publishTime>08/19/2018 10:48:23</publishTime>
     </File>
     <File Include="bin/CarWash.Util.dll">
       <publishTime>08/10/2018 20:11:45</publishTime>
@@ -289,13 +289,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/18/2015 19:19:46</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>01/28/2015 04:02:42</publishTime>
+      <publishTime>10/05/2018 22:38:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>10/05/2018 22:37:02</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>10/05/2018 22:39:40</publishTime>
+    </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/28/2015 04:02:54</publishTime>
+      <publishTime>10/05/2018 22:39:16</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Owin.dll">
       <publishTime>01/28/2015 04:03:16</publishTime>
@@ -355,7 +361,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/05/2017 15:36:54</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>09/07/2017 12:58:36</publishTime>
+      <publishTime>08/11/2018 13:10:31</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>09/05/2017 15:36:57</publishTime>
@@ -412,7 +418,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/05/2017 15:36:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>08/10/2018 20:11:55</publishTime>
+      <publishTime>08/19/2018 10:48:36</publishTime>
     </File>
   </ItemGroup>
 </Project>
