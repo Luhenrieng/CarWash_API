@@ -15,7 +15,7 @@ namespace BasicDDD.BasicApplication.Controllers
 {
     [BasicAuthentication]
     [RoutePrefix("api/ApiUser")]
-    [EnableCors(origins: "http://localhost, http://localhost:80, http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost, http://localhost:80, http://localhost:4200, http://www.carwash.tk, http://carwash.tk, ", headers: "*", methods: "*")]
     public class ApiUserController : ApiController
     {
 
