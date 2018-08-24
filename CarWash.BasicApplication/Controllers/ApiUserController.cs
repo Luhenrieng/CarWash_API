@@ -57,7 +57,6 @@ namespace BasicDDD.BasicApplication.Controllers
             return "value";
         }
 
-
         // POST: api/ApiUser
         [Route("Register")]
         [HttpPost]
