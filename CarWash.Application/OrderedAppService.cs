@@ -38,5 +38,10 @@ namespace BasicDDD.Application
         {
             return _orderedService.ListOrderByUser(userId, UserRoleId);
         }
+
+        public string UpdateOrderStatus(UpdateOrderStatus updateOrderStatus)
+        {
+            return this._orderedService.UpdateOrderStatus(updateOrderStatus);
+        }
     }
 }
