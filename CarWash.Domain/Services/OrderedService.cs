@@ -94,5 +94,10 @@ namespace BasicDDD.Domain.Services
 
             return true;
         }
+
+        public string UpdateOrderStatus(UpdateOrderStatus updateOrderStatus)
+        {
+            return this._orderedRepository.UpdateOrderStatus(updateOrderStatus);
+        }
     }
 }

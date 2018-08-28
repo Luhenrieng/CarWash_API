@@ -10,6 +10,7 @@ using BasicDDD.BasicApplication.Models;
 using BasicDDD.Domain.Entities;
 using BasicDDD.Application;
 using System.Web.Http.Cors;
+using BasicDDD.Domain.Entities.ValueObjects;
 
 namespace BasicDDD.BasicApplication.Controllers
 {
@@ -56,7 +57,6 @@ namespace BasicDDD.BasicApplication.Controllers
         {
             return "value";
         }
-
 
         // POST: api/ApiUser
         [Route("Register")]
@@ -351,7 +351,53 @@ namespace BasicDDD.BasicApplication.Controllers
             else
                 return new ApiResponse(false, message);
         }
-        
+
+
+        [Route("AcceptOrder")]
+        [HttpPost]
+        public ApiResponse AcceptOrder([FromBody]Models.ApiRequest.UpdateOrderStatusRequest request)
+        {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+
+            request.WasherId = userViewModel.Id;
+            request.Status = 4; //Aceito
+            string message = this._orderedAppService.UpdateOrderStatus(Mapper.Map<UpdateOrderStatus>(request));
+
+            if (message == "")
+                return new ApiResponse(true, "Pedido aceito com sucesso.");
+            else
+                return new ApiResponse(false, message);
+        }
+
+
+        [Route("RejectOrder")]
+        [HttpPost]
+        public ApiResponse RejectOrder([FromBody]Models.ApiRequest.UpdateOrderStatusRequest request)
+        {
+            if (request == null)
+                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
+
+            UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(request.Token));
+
+            if (userViewModel == null)
+                return new ApiResponse(false, "Token inválido.");
+
+            request.WasherId = userViewModel.Id;
+            request.Status = 3; //Rejeitado
+            string message = this._orderedAppService.UpdateOrderStatus(Mapper.Map<UpdateOrderStatus>(request));
+
+            if (message == "")
+                return new ApiResponse(true, "Pedido rejeitado com sucesso.");
+            else
+                return new ApiResponse(false, message);
+        }
+
     }
     
 }
