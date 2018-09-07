@@ -12,6 +12,7 @@ namespace BasicDDD.BasicApplication.Models
         public int UserId { get; set; }
         public int WasherId { get; set; }
         public DateTime Created { get; set; }
+        public DateTime ScheduledDateTime { get; set; }
         public decimal TotalPrice { get; set; }
         public int Status { get; set; }
         public List<OrderItemViewModel> ListItens { get; set; }

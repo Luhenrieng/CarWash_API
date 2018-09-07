@@ -261,9 +261,6 @@ namespace BasicDDD.BasicApplication.Controllers
         [HttpPost]
         public ApiResponse CreateOrder([FromBody]Models.CreateOrderViewModel order)
         {
-            if (order == null)
-                return new ApiResponse(false, "Objeto de entrada no formato incorreto ou não informado.");
-
             UserViewModel userViewModel = Mapper.Map<UserViewModel>(this._userAppService.GetByToken(order.Token));
 
             if (userViewModel == null)
@@ -271,10 +268,20 @@ namespace BasicDDD.BasicApplication.Controllers
 
             try
             {
-                if (_orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order)))
-                    return new ApiResponse(true, "Pedido criado com sucesso.");
+                string validationMessage = _orderedAppService.ValidadeOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order));
+
+                if (validationMessage == "")
+                {
+                    if (_orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order)))
+                        return new ApiResponse(true, "Pedido criado com sucesso.");
+                    else
+                        return new ApiResponse(false, "Erro ao criar pedido, por favor tente novamente mais tarde.");
+                }
                 else
-                    return new ApiResponse(false, "Erro ao criar pedido, por favor tente novamente mais tarde.");
+                {
+                    return new ApiResponse(false, validationMessage);
+                }
+               
             }
             catch (Exception ex)
             {

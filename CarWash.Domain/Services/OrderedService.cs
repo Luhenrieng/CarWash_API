@@ -64,6 +64,24 @@ namespace BasicDDD.Domain.Services
             return listOrderReport.OrderBy(o => o.OrderId);
         }
 
+        public string ValidateOrder(CreateOrder order)
+        {
+            if (order == null) return "Objeto de entrada no formato incorreto ou não informado.";
+            if (order.ScheduledDateTime == null) return "Data de agendamento não pode ser nula.";
+            if (order.ScheduledDateTime < DateTime.Now) return "Data e hora de agendamento não pode ser menor que a data e hora atual.";
+            if (order.UserId == 0) return "Id do cliente não pode ser nulo.";
+            if (order.WasherId == 0) return "Id do lavador não pode ser nulo.";
+            if (order.TotalPrice == 0) return "Valor do pedido não pode ser nulo.";
+            if (order.ListItens == null || order.ListItens.Count == 0) return "O pedido deve conter no mínimo 1 item.";
+
+            int hour = order.ScheduledDateTime.Hour;
+            int minute = order.ScheduledDateTime.Minute;
+
+            if (hour < 8 || hour > 19) return "Horário de agendamento deve ser entre 08:00 e 19:59h.";
+
+            return "";
+        }
+
         public bool CreateOrder(CreateOrder order)
         {
             Ordered ordered;
@@ -75,6 +93,7 @@ namespace BasicDDD.Domain.Services
                 ordered.UserId = order.UserId;
                 ordered.WasherId = order.WasherId;
                 ordered.Created = DateTime.Now;
+                ordered.ScheduledDateTime = order.ScheduledDateTime;
                 ordered.TotalPrice = order.TotalPrice;
                 ordered.Status = (int)Ordered.EnumOrderedStatus.Iniciado;
                 ordered.Id = _orderedRepository.Add(ordered);
