@@ -29,5 +29,6 @@ namespace BasicDDD.Domain.Entities.ValueObjects
         public int EvaluationAmount { get; set; }
         public int? ScoreSum { get; set; }
         public decimal? ScoreAverage { get; set; }
+        public decimal? MinPrice { get; set; }
     }
 }
