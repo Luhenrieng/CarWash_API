@@ -42,8 +42,8 @@ namespace BasicDDD.Infra.Data.Repositories
         {
             using (MySqlConnection con = new MySqlConnection(conString))
             {
-                var sql = @"insert into Ordered(UserId, WasherId, Created, TotalPrice, Status) 
-                                            values(@UserId, @WasherId, @Created, @TotalPrice, @Status);
+                var sql = @"insert into Ordered(UserId, WasherId, Created, TotalPrice, Status, ScheduledDateTime) 
+                                            values(@UserId, @WasherId, @Created, @TotalPrice, @Status, @ScheduledDateTime);
                                             Select @@Identity;";
 
                 return con.Query<int>(sql, ordered).Single();
@@ -57,6 +57,7 @@ namespace BasicDDD.Infra.Data.Repositories
                 var sql = @"Select
                             O.Id OrderId,
                             O.Created,
+                            O.ScheduledDateTime,
                             O.TotalPrice,
                             O.Status,
                             U1.Id UserId,
@@ -78,6 +79,7 @@ namespace BasicDDD.Infra.Data.Repositories
                 var sql = @"Select
                             O.Id OrderId,
                             O.Created,
+                            O.ScheduledDateTime,
                             O.TotalPrice,
                             O.Status,
                             U1.Id UserId,
@@ -103,6 +105,7 @@ namespace BasicDDD.Infra.Data.Repositories
                 var sql = @"Select
                             O.Id OrderId,
                             O.Created,
+                            O.ScheduledDateTime,
                             O.TotalPrice,
                             O.Status,
                             U1.Id UserId,

@@ -43,5 +43,10 @@ namespace BasicDDD.Application
         {
             return this._orderedService.UpdateOrderStatus(updateOrderStatus);
         }
+
+        public string ValidadeOrder(CreateOrder order)
+        {
+            return this._orderedService.ValidateOrder(order);
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace BasicDDD.Domain.Entities
         public int UserId { get; set; }
         public int WasherId { get; set; }
         public DateTime Created { get; set; }
+        public DateTime ScheduledDateTime { get; set; }
         public decimal TotalPrice { get; set; }
         public int Status { get; set; }
     }
