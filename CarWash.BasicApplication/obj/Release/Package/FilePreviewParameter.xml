@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="CarWashApi" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Projetos\\CarWash_API\\CarWash\.BasicApplication\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Projetos\\CarWash_API\\CarWash\.BasicApplication\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-BasicDDD.BasicApplication-20170905033716.mdf;Initial Catalog=aspnet-BasicDDD.BasicApplication-20170905033716;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Projetos\\CarWash_API\\CarWash\.BasicApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="MySqlConnection-Web.config Connection String" description="" value="server=localhost;port=3307;uid=root;pwd=1234;database=carwash;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Projetos\\CarWash_API\\CarWash\.BasicApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MySqlConnection']/@connectionString" />
+  </parameter>
+</parameters>
