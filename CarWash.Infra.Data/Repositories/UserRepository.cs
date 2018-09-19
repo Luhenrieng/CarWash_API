@@ -129,19 +129,36 @@ namespace BasicDDD.Infra.Data.Repositories
                             U.Active,
                             (Select Count(*) from Evaluation Where UserIdTo = U.Id) as EvaluationAmount,
                             (Select Sum(Evaluation.Score) from Evaluation Where UserIdTo = U.Id) as ScoreSum,
-                            SU.SpecificPrice,
-                            (Case
-	                            When Min(SU.SpecificPrice) Is not null and Min(SU.SpecificPrice) <> 0 Then Min(SU.SpecificPrice)
-                                When Min(S.DefaultPrice) Is not null and Min(S.DefaultPrice) <> 0 Then Min(S.DefaultPrice)
-                                Else Null
-                            End) As MinPrice
+                             (Case
+		                            When Min(SU.SpecificPrice) Is not null and Min(SU.SpecificPrice) <> 0 Then Min(SU.SpecificPrice)
+		                            When Min(S.DefaultPrice) Is not null and Min(S.DefaultPrice) <> 0 Then Min(S.DefaultPrice)
+		                            Else Null
+	                            End) As MinPrice
                             from User U
-                            left join services_x_user SU on SU.UserId = U.Id
-                            left join service S on S.Id = SU.ServiceId
+                            left join Services_X_User SU on SU.UserId = U.Id
+                            left join Service S on S.Id = SU.ServiceId
                             Where 
                             (U.Active = 1)
                             AND (U.RoleId = 2 or U.RoleId = 3)
-                            Group By U.Id";
+                            Group By 
+                            U.Id, 
+                            U.RoleId, 
+                            U.Name,
+                            U.Email,
+                            U.Document,
+                            U.Inserted,
+                            U.BirthDate,
+                            U.Cep,
+                            U.Address,
+                            U.AddressNumber,
+                            U.Complement,
+                            U.District,
+                            U.City,
+                            U.State,
+                            U.PhoneNumber,
+                            U.Latitude,
+                            U.Longitude,
+                            U.Active";
 
                 var listWasher = con.Query<Washer>(sql).ToList();
 

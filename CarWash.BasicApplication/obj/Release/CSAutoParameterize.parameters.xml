@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-BasicDDD.BasicApplication-20170905033716.mdf;Initial Catalog=aspnet-BasicDDD.BasicApplication-20170905033716;Integrated Security=True" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Projetos\\CarWash_API\\CarWash\.BasicApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-  <parameter name="MySqlConnection-Web.config Connection String" description="MySqlConnection Connection String used in web.config by the application to access the database." defaultValue="server=carwash22.mysql.database.azure.com;port=3306;uid=carwash22@carwash22;pwd=Melancia123;database=carwash;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Projetos\\CarWash_API\\CarWash\.BasicApplication\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MySqlConnection']/@connectionString" />
-  </parameter>
-</parameters>

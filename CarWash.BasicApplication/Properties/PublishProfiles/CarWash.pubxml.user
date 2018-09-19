@@ -148,16 +148,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/26/2017 20:07:14</publishTime>
     </File>
     <File Include="bin/BasicDDD.Application.dll">
-      <publishTime>09/07/2018 14:25:15</publishTime>
+      <publishTime>09/18/2018 19:39:28</publishTime>
     </File>
     <File Include="bin/BasicDDD.BasicApplication.dll">
-      <publishTime>09/07/2018 14:25:21</publishTime>
+      <publishTime>09/18/2018 20:16:45</publishTime>
     </File>
     <File Include="bin/BasicDDD.Domain.dll">
-      <publishTime>09/07/2018 14:25:14</publishTime>
+      <publishTime>09/18/2018 19:39:27</publishTime>
     </File>
     <File Include="bin/BasicDDD.Infra.Data.dll">
-      <publishTime>09/07/2018 14:25:14</publishTime>
+      <publishTime>09/18/2018 20:16:38</publishTime>
     </File>
     <File Include="bin/CarWash.Util.dll">
       <publishTime>08/10/2018 20:11:45</publishTime>
@@ -289,19 +289,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/18/2015 19:19:46</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
-      <publishTime>05/10/2018 22:38:56</publishTime>
+      <publishTime>10/05/2018 22:38:56</publishTime>
     </File>
     <File Include="bin/System.Web.Cors.dll">
-      <publishTime>05/10/2018 22:37:02</publishTime>
+      <publishTime>10/05/2018 22:37:02</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/28/2015 04:04:30</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Cors.dll">
-      <publishTime>05/10/2018 22:39:40</publishTime>
+      <publishTime>10/05/2018 22:39:40</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>05/10/2018 22:39:16</publishTime>
+      <publishTime>10/05/2018 22:39:16</publishTime>
     </File>
     <File Include="bin/System.Web.Http.Owin.dll">
       <publishTime>01/28/2015 04:03:16</publishTime>
@@ -418,7 +418,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/09/2017 15:36:54</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/07/2018 14:25:24</publishTime>
+      <publishTime>09/18/2018 19:39:39</publishTime>
     </File>
   </ItemGroup>
 </Project>
