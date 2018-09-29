@@ -24,7 +24,7 @@ namespace BasicDDD.Application
             return this._orderedService.Add(ordered);
         }
 
-        public bool CreateOrder(Domain.Entities.ValueObjects.CreateOrder order)
+        public int CreateOrder(Domain.Entities.ValueObjects.CreateOrder order)
         {
             return _orderedService.CreateOrder(order);
         }

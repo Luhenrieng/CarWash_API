@@ -82,10 +82,11 @@ namespace BasicDDD.Domain.Services
             return "";
         }
 
-        public bool CreateOrder(CreateOrder order)
+        public int CreateOrder(CreateOrder order)
         {
             Ordered ordered;
             OrderedItem item;
+            int orderedIdResult = 0;
 
             if(order != null)
             {
@@ -100,7 +101,9 @@ namespace BasicDDD.Domain.Services
 
                 if(ordered.Id > 0 && order.ListItens != null)
                 {
-                    foreach(var i in order.ListItens)
+                    orderedIdResult = ordered.Id;
+
+                    foreach (var i in order.ListItens)
                     {
                         item = new OrderedItem();
                         item.OrderedId = ordered.Id;
@@ -111,7 +114,7 @@ namespace BasicDDD.Domain.Services
                 }
             }
 
-            return true;
+            return orderedIdResult;
         }
 
         public string UpdateOrderStatus(UpdateOrderStatus updateOrderStatus)

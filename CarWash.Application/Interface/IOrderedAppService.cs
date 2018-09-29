@@ -11,7 +11,7 @@ namespace BasicDDD.Application.Interface
     public interface IOrderedAppService
     {
         int Add(Ordered ordered);
-        bool CreateOrder(CreateOrder order);
+        int CreateOrder(CreateOrder order);
         string ValidadeOrder(CreateOrder order);
         IEnumerable<OrderReport> ListAllOrderReport();
         IEnumerable<OrderReport> ListOrderByUser(int userId, int UserRoleId);

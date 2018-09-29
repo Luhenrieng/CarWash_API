@@ -11,12 +11,13 @@ using BasicDDD.Domain.Entities;
 using BasicDDD.Application;
 using System.Web.Http.Cors;
 using BasicDDD.Domain.Entities.ValueObjects;
+using CarWash.Util.Moip;
 
 namespace BasicDDD.BasicApplication.Controllers
 {
     [BasicAuthentication]
     [RoutePrefix("api/ApiUser")]
-    [EnableCors(origins: "http://localhost, http://localhost:80, http://localhost:4200, http://www.carwash.tk, http://carwash.tk, ", headers: "*", methods: "*")]
+    [EnableCors(origins: "http://localhost, http://localhost:80, http://localhost:4200, http://www.carwash.tk, http://carwash.tk, https://sandbox.moip.com.br", headers: "*", methods: "*")]
     public class ApiUserController : ApiController
     {
 
@@ -272,8 +273,15 @@ namespace BasicDDD.BasicApplication.Controllers
 
                 if (validationMessage == "")
                 {
-                    if (_orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order)))
-                        return new ApiResponse(true, "Pedido criado com sucesso.");
+                    int orderId = _orderedAppService.CreateOrder(Mapper.Map<Domain.Entities.ValueObjects.CreateOrder>(order));
+
+                    if (orderId > 0)
+                    {
+                        CreateOrderResponse response = new CreateOrderResponse();
+                        response.OrderId = orderId;
+                        response.Message = "Pedido criado com sucesso.";
+                        return new ApiResponse(true, response);
+                    }
                     else
                         return new ApiResponse(false, "Erro ao criar pedido, por favor tente novamente mais tarde.");
                 }
@@ -405,6 +413,16 @@ namespace BasicDDD.BasicApplication.Controllers
                 return new ApiResponse(false, message);
         }
 
+
+        [Route("SendPayment")]
+        [HttpGet]
+        public ApiResponse SendPayment([FromBody]Models.ApiRequest.UpdateOrderStatusRequest request)
+        {
+            Moip moip = new Moip();
+
+            moip.FindCustomer("CUS-BD9NCWG3V7EH");
+
+            return new ApiResponse(false, "200 OK");
+        }
     }
-    
 }

@@ -285,11 +285,13 @@
     <Compile Include="Models\ApiRequest\ListWashersRequest.cs" />
     <Compile Include="Models\ApiRequest\UserTokenRequest.cs" />
     <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\CreateOrderResponse.cs" />
     <Compile Include="Models\CreateOrderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\OrderItemReportViewModel.cs" />
     <Compile Include="Models\OrderReportViewModel.cs" />
+    <Compile Include="Models\SendPaymentViewModel.cs" />
     <Compile Include="Models\ServiceDescriptionViewModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\UserTokenViewModel.cs" />
@@ -387,6 +389,10 @@
     <ProjectReference Include="..\CarWash.Infra.Data\CarWash.Data.csproj">
       <Project>{31EA22F8-9839-4BEF-9CB1-6E45DE4F0859}</Project>
       <Name>CarWash.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarWash.Util\CarWash.Util.csproj">
+      <Project>{22D8DD8D-D0D0-4E68-95B2-CC3476F7F514}</Project>
+      <Name>CarWash.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

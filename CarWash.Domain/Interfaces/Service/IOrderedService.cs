@@ -10,7 +10,7 @@ namespace BasicDDD.Domain.Interfaces.Service
     public interface IOrderedService
     {
         int Add(Entities.Ordered ordered);
-        bool CreateOrder(Entities.ValueObjects.CreateOrder order);
+        int CreateOrder(Entities.ValueObjects.CreateOrder order);
         string ValidateOrder(Entities.ValueObjects.CreateOrder order);
         IEnumerable<OrderReport> ListAllOrderReport();
         IEnumerable<OrderReport> ListOrderByUser(int userId, int UserRoleId);
