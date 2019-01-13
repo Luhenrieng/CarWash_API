@@ -9,6 +9,7 @@ using System.Net;
 using System.IO;
 using CarWash.Util;
 using BasicDDD.Domain.Entities.ValueObjects;
+using System.Text.RegularExpressions;
 
 namespace BasicDDD.Domain.Services
 {
@@ -130,14 +131,25 @@ namespace BasicDDD.Domain.Services
         /// <returns></returns>
         public string ValidateUser(User user)
         {
+            string pattern = @"^(?=.*[a-zA-Z])(?=.*[0-9]).+$";
+            Regex regex = new Regex(pattern);
+
             if (string.IsNullOrEmpty(user.Name))
                 return "Campo nome não pode ser nulo.";
             else if (string.IsNullOrEmpty(user.Email))
                 return "Campo E-mail não pode ser nulo.";
             else if (user.RoleId < 0 || user.RoleId > 5)
                 return "Tipo de usuário não pode ser nulo.";
+
             else if (string.IsNullOrEmpty(user.Password))
                 return "Campo senha não pode ser nulo.";
+            else if (user.Password.Count() < 6)
+                return "Campo senha deve conter no mínimo 6 caracteres.";
+            else if (user.Password.Count() > 10)
+                return "Campo senha deve conter no máximo 10 caracteres.";
+            else if (!regex.IsMatch(user.Password))
+                return "Campo senha deve conter números e letras.";
+
             else if (string.IsNullOrEmpty(user.Document))
                 return "Campo CPF não pode ser nulo.";
             else if (user.BirthDate == null || user.BirthDate < DateTime.Now.AddYears(-100))
