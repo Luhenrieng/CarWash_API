@@ -16,7 +16,12 @@ namespace CarWash.Util
         public string GetLocationFromAddress(string address, string number, string neighborhood, string city, string state)
         {
             string responseFromServer = "";
-            string key = "AIzaSyCscPXuYljvh6OS1-VM4UZe8lYaepNbgcU";
+
+            //Chave Luiz expirada
+            //string key = "AIzaSyCscPXuYljvh6OS1-VM4UZe8lYaepNbgcU";
+
+            //Chave Meire Válida
+            string key = "AIzaSyBm_o0GCDq4pY1H1eJHaLMhpin3DyaiLdQ";
 
             try
             {
