@@ -171,8 +171,8 @@ namespace BasicDDD.BasicApplication.Controllers
                         var indexCharLat = request.Latitude.Contains(".") ? request.Latitude.IndexOf('.') : request.Latitude.IndexOf(',');
                         var indexCharLong = request.Longitude.Contains(".") ? request.Longitude.IndexOf('.') : request.Longitude.IndexOf(',');
 
-                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, indexCharLat + 4).Replace(",", ""));
-                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, indexCharLong + 4).Replace(",", ""));
+                        requestLat = Convert.ToDecimal(request.Latitude.Replace(".", ",").Substring(0, indexCharLat + 3).Replace(",", ""));
+                        requestLng = Convert.ToDecimal(request.Longitude.Replace(".", ",").Substring(0, indexCharLong + 3).Replace(",", ""));
                     }
                     catch (Exception ex)
                     {
@@ -180,7 +180,7 @@ namespace BasicDDD.BasicApplication.Controllers
                     }
                     
                     decimal maxLat, minLat, maxLng, minLng;
-                    decimal radius = request.MaxRadius * 3;
+                    decimal radius = request.MaxRadius;
 
                     maxLat = requestLat + radius;
                     minLat = requestLat - radius;
@@ -189,8 +189,11 @@ namespace BasicDDD.BasicApplication.Controllers
 
                     foreach (var user in listUser.Where(c => c.Active).Where(c => c.RoleId == 2 || c.RoleId == 3))
                     {
-                        decimal lat = Convert.ToDecimal(user.Latitude.Substring(0, user.Latitude.IndexOf(',') + 4).Replace(",", ""));
-                        decimal lng = Convert.ToDecimal(user.Longitude.Substring(0, user.Longitude.IndexOf(',') + 4).Replace(",", ""));
+                        var indexCharLat = request.Latitude.Contains(".") ? request.Latitude.IndexOf('.') : request.Latitude.IndexOf(',');
+                        var indexCharLong = request.Longitude.Contains(".") ? request.Longitude.IndexOf('.') : request.Longitude.IndexOf(',');
+
+                        decimal lat = Convert.ToDecimal(user.Latitude.Replace(".",",").Substring(0, indexCharLat + 3).Replace(",", ""));
+                        decimal lng = Convert.ToDecimal(user.Longitude.Replace(".", ",").Substring(0, indexCharLong + 3).Replace(",", ""));
 
                         if ((lat < maxLat && lat > minLat) &&
                             (lng < maxLng && lng > minLng))
